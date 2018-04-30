@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>页面标题</title>
+	<meta http-equiv="Cache-Control" content="no-siteapp" /><!-- 百度禁止转码 -->
+	<meta name="keywords" content="这里写关键字">
+	<meta name="description" content="这里写页面描述">
+	<meta name ="viewport" content ="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"> 
+	<meta name="format-detection" content="telephone=no,email=no" /> <!-- 禁止自动识别为电话号码和邮件 -->
+	<script src="../public/js/jquery.js"></script>
+	<link rel="stylesheet" href="../public/css/base.css">
+	<link rel="stylesheet" type="text/css" href="../public/css/guide.css">
+</head>
+<body class="bg-inverse">
+
+<section class="user">
+	<div class="user-photo">
+		<a href="#">
+			<img src="../public/img/user-photo-default.png" alt="">
+		</a>
+	</div>
+	<div class="user-txt">
+		<p>谢晴</p>
+		<p>工号：HB112</p>
+		<p>企业：上海中智关爱通</p>
+	</div>
+</section>
+<div class="space"></div>
+<section class="container">
+	<section class="row-full">
+		<section class="border-t">
+			<div class="label-act">
+				<a href="http://www.baidu.com">
+					<div class="label-act-left">
+						<i class="ico-pic order"></i>
+						<h2>我的订单</h2>
+					</div>
+					<div class="label-act-right">查看全部订单</div>
+					<i class="icon-right right"></i>
+				</a>
+			</div>
+		</section>
+		<div class="space"></div>
+		<section class="border-t">
+			<div class="label-act">
+				<a href="http://www.baidu.com">
+					<div class="label-act-left">
+						<i class="ico-pic property"></i>
+						<h2>我的资产</h2>
+					</div>
+					<div class="label-act-right">查看收支明细</div>
+					<i class="icon-right right"></i>
+				</a>
+			</div>
+		</section>
+		<div class="space"></div>
+		<section class="border-t">
+			<div class="label-act">
+				<a href="http://www.baidu.com">
+					<div class="label-act-left">
+						<i class="ico-pic card"></i>
+						<h2>ai卡卡号</h2>
+					</div>
+					<div class="label-act-right">123123123123123123123123123123123123</div>
+					<i class="icon-right right"></i>
+				</a>
+			</div>
+			<div class="label-act">
+				<a href="http://www.baidu.com">
+					<div class="label-act-left">
+						<i class="ico-pic tel"></i>
+						<h2>绑定手机号码</h2>
+					</div>
+					<div class="label-act-right">未绑定<i class="point"></i></div>
+					<i class="icon-right right"></i>
+				</a>
+			</div>
+			<div class="label-act">
+				<a href="http://www.baidu.com">
+					<div class="label-act-left">
+						<i class="ico-pic resetPw"></i>
+						<h2>修改登录密码</h2>
+					</div>
+					<i class="icon-right right"></i>
+				</a>
+			</div>
+			<div class="label-act">
+				<a href="http://www.baidu.com">
+					<div class="label-act-left">
+						<i class="ico-pic security"></i>
+						<h2>支付安全设置</h2>
+					</div>
+					<i class="icon-right right"></i>
+				</a>
+			</div>
+			<div class="label-act">
+				<a href="http://www.baidu.com">
+					<div class="label-act-left">
+						<i class="ico-pic address"></i>
+						<h2>管理收货地址</h2>
+					</div>
+					<i class="icon-right right"></i>
+				</a>
+			</div>
+		</section>		
+		<div class="space"></div>
+		<section class="border-t">
+			<div class="label-act">
+				<a href="javascript:;" onclick="contactCustomeservice();">
+					<div class="label-act-left">
+						<i class="ico-pic serviceTel"></i>
+						<h2>客服电话</h2>
+					</div>
+					<div class="label-act-right">400-888-5818</div>
+				</a>
+			</div>
+		</section>
+		<div class="space"></div>
+		<section class="border-t">
+			<div class="label-act">
+				<a href="javascript:;" onclick="logout()" class="logout">
+					退出当前账号
+				</a>
+			</div>
+		</section>
+		<div class="space"></div>
+	</section>
+</section>
+<section class="nav-bottom-holder">
+	<nav class="nav-main fixed-bottom">
+		<a href="javascript:;"><i class="icon-home"></i>首页</a>
+		<a href="javascript:;"><i class="icon-gift"></i>福利</a>
+		<a href="javascript:;"><i class="icon-news point"></i>消息</a>
+		<a href="javascript:;" class="current"><i class="icon-my"></i>我的</a>
+	</nav>
+</section>
+
+<!-- 引导部分 star -->
+<div class="bg">
+	<img src="../public/img/explan3.png" alt="" class="explan1 explan3">
+	<img src="../public/img/my.png" alt="" class="my xiaoxi">
+	<img src="../public/img/know.png" alt="" class="know know3">
+</div>
+<!-- 引导部分 end -->
+<script src="../public/js/gat.AlertMessage.js"></script>
+<script src="../public/js/base.js"></script>
+<script>
+function logout(){
+	message.showConfirm({
+	    'rightBtnTxt': '确定退出',
+	    'rightBtnCallback': function(){
+	    	alert('成功！')
+	    	message.closeAll();
+	    },
+	    'content': '您确定退出当前账号吗？'
+	});
+}
+
+function contactCustomeservice(){
+	message.showConfirm({
+		'title': '联系客服',
+	    'leftBtnTxt': '取消',
+	    'rightBtnTxt': '确定',
+	    'rightBtnAutoClose': true,
+	    'rightBtnCallback': function(){
+	    	window.location.href="tel:400-888-5818";
+	    },
+	    'content': '拨打客服电话：400-888-5818'
+	});
+}
+
+$(function() {
+	var $icon = $('.icon-my');
+	var lf = $icon.offset().left;
+	var hd = $('.label-act').offset().top;
+	var wd = ($icon.innerWidth()) / 2; 
+	$('.my').css('left', (lf - wd - 10) + 'px');
+	// $('.explan3').css('top', hd + 'px');
+	$('.know').on('touchend',function(event) {
+		$('.bg').hide();
+		event.preventDefault();
+	})
+	document.addEventListener("touchmove", function (event) {
+	    if ($('.bg').display !== 'none') {
+	        event.preventDefault();
+	    }
+	},false);
+
+})
+</script>
+</body>
+</html>

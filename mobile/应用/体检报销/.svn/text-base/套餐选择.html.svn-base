@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp" /><!-- 百度禁止转码 -->
+    <meta name ="viewport" content ="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"> 
+    <meta name="format-detection" content="telephone=no,email=no" /> <!-- 禁止自动识别为电话号码和邮件 -->
+    <meta name="keywords" content="这里写关键字">
+    <meta name="description" content="这里写页面描述">
+    <title>个人中心-套餐选择</title>
+    <script type="text/javascript" src="../../public/js/jquery.js" ></script>
+    <script type="text/javascript" src="js/height.js" ></script>
+    <script type="text/javascript" src="../../public/js/base.js"></script>
+    <link rel="stylesheet" href="css/phone.css" />
+    <link rel="stylesheet" href="css/theme.css" />
+</head>
+<body>
+    <view class="border-n">
+        <div class="container">
+            <div class="border-b">
+                <div class="row-full packagesteps flex-box mb0">
+                    <div class="flex1">
+                        <span class="packageactive">1. 选套餐</span><b class="fs-18">&gt;</b>
+                        <span>2. 选体检中心</span><b class="fs-18">&gt;</b>
+                        <span>3. 选日期</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-b">
+                <div class="row-full bg-f mb0">
+                    <section class="form-group flex-box border-b">
+                        <label class="package">
+                            <span><input type="radio" checked="checked" name="option1"><em class="road"></em></span>普通套餐
+                        </label>
+                        <div class="form-control-box packagecont tr">套餐详情</div>
+                    </section>
+                    <section class="form-group flex-box border-b">
+                        <label class="package">
+                            <span><input type="radio" name="option1"><em class="road"></em></span>高级套餐
+                        </label>
+                        <div class="form-control-box packagecont tr">套餐详情</div>
+                    </section>
+                    <section class="form-group flex-box border-b">
+                        <label class="package">
+                            <span><input type="radio" name="option1"><em class="road"></em></span>普通套餐
+                        </label>
+                        <div class="form-control-box packagecont tr">套餐详情</div>
+                    </section>
+                    <section class="form-group flex-box border-b">
+                        <label class="package">
+                            <span><input type="radio" name="option1"><em class="road"></em></span>高级套餐
+                        </label>
+                        <div class="form-control-box packagecont tr">套餐详情</div>
+                    </section>
+                </div>
+            </div>
+
+            <div class="row-full mt20">
+                <a class="btn btn-primary" href="#" title="">确定</a>
+            </div>
+
+            <div class="row-full mt20">
+                <a class="chosepermissions" href="https://www.baidu.com/" title="">
+                    <img class="per100" src="img/chosepermissions.png" alt="">
+                    <p>我要体检报销&gt;&gt;</p>
+                </a>
+            </div>
+
+            <div class="row-full mt44">
+                <div class="packagetip">
+                    <p class="mb5">温馨提示：</p>
+                    <ol>
+                        <li>使用本卡必须提前7个工作日预约，未经预约直接持本卡至体检中心使用无效；</li>
+                        <li>体检当日请务必携带身份证；</li>
+                        <li>体检当日早晨须空腹，前一日晚八点后请勿进食，以免影响血脂类检查效果；</li>
+                        <li>女性体检请避免生理期，以免影响检查结果。</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </view>
+</body>
+</html>

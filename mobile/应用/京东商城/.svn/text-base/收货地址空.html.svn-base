@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp" /><!-- 百度禁止转码 -->
+    <meta name ="viewport" content ="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"> 
+    <meta name="format-detection" content="telephone=no,email=no" /> <!-- 禁止自动识别为电话号码和邮件 -->
+    <meta name="keywords" content="这里写关键字">
+    <meta name="description" content="这里写页面描述">
+    <title>京东商城-收获地址</title>
+    <link rel="stylesheet" href="css/phone.css" />
+    <link rel="stylesheet" href="css/theme.css" />
+    <script type="text/javascript" src="http://cdn.guanaitong.com/s2/mobile/V5.0/js/jquery.js"></script>
+    <script type="text/javascript" src="js/response.js" ></script>
+</head>
+<body>
+    <view class="bg-f border-tn">
+        <div class="mycar-no tc">
+            <img src="img/no-address.png" width="60" height="60">
+            <p class="fs-16">您还没有收货地址，快去新建吧</p>
+        </div>
+    </view><footer class="flex-box plr12">
+        <div class="flex1">
+            <a href="javascript:;" class="btn btn-primary"><i class="icon-add fc-f mr3"></i>新建地址</a>
+        </div>
+    </footer>
+</body>
+<script type="text/javascript">
+$(function(){
+    
+})
+</script>
+</html>

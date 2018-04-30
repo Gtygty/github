@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>加油卡充值 - 订单详情</title>
+	<meta http-equiv="Cache-Control" content="no-siteapp" /><!-- 百度禁止转码 -->
+	<meta name="keywords" content="这里写关键字">
+	<meta name="description" content="这里写页面描述">
+	<meta name ="viewport" content ="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"> 
+	<meta name="format-detection" content="telephone=no,email=no" /> <!-- 禁止自动识别为电话号码和邮件 -->
+	<script src="../../public/js/jquery.js"></script>
+	<link rel="stylesheet" href="../../public/css/base.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-inverse">
+<section class="order-info border-t border-b">
+	<section class="icon-sm flexbox order-state completed">订单已完成</section>
+</section>
+<div class="space"></div>
+<section class="order-detail border-t border-b">
+	<header class="flexbox container dark"><img src="img/car.png" class="vm mr5" width="18" height="18" alt="">加油卡充值</header>
+	<section class="order-coupon">
+		<section class="order-coupon-item">
+			<div class="oil-img"></div>
+			<div class="coupon-txt">
+				<p>卡号：12323231231313</p>
+				<p>卡密：12323231231313</p>
+				<p class="light">有效期至：2018/10/01   0:00</p>
+			</div>
+		</section>
+	</section>
+	<section class="order-cost-detail border-t">
+		<div class="item flexbox">
+			<div>服务费：</div>
+			<div class="tr">44.00</div>
+		</div>
+		<div class="item flexbox">
+			<div>关爱积分：</div>
+			<div class="tr">2000.00</div>
+		</div>
+		<div class="item flexbox">
+			<div>个人现金：</div>
+			<div class="tr">180.00</div>
+		</div>
+	</section>
+	<section class="order-cost-total border-t">
+		<p class="total">订单总额：<strong>2244.00</strong></p>
+	</section>
+</section>
+<div class="space"></div>
+<section class="order-info-other border-t border-b">
+	<p>订单编号：1346098890045 </p>
+	<p>创建时间：2015.11.13   12:36:27 </p>
+</section>
+</body>
+</html>

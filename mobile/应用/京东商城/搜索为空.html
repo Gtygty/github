@@ -1,0 +1,90 @@
+<!-- <!DOCTYPE html> -->
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp" /><!-- 百度禁止转码 -->
+    <meta name ="viewport" content ="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"> 
+    <meta name="format-detection" content="telephone=no,email=no" /> <!-- 禁止自动识别为电话号码和邮件 -->
+    <meta name="keywords" content="这里写关键字">
+    <meta name="description" content="这里写页面描述">
+    <title>京东商城-搜索为空</title>
+    <link rel="stylesheet" href="css/phone.css" />
+    <link rel="stylesheet" href="css/theme.css" />
+    <script type="text/javascript" src="http://cdn.guanaitong.com/s2/mobile/V5.0/js/jquery.js"></script>
+    <script type="text/javascript" src="js/response.js" ></script>
+</head>
+<body>
+    <header>
+        <div class="search search-focus flex-box border-b">
+            <label style="width:30px;"><i class="icon-back"></i></label>
+            <div class="flex1 pos-r">
+                <i class="icon-search icon-center fs-16 fc-9 fb"></i>
+                <form action=""><input type="search" name="searchInput" id="search" value="" placeholder="请输入关m键词"></form>
+            </div>
+            <label class="tr lh26" id="cancel">取消</label>
+        </div>
+    </header>
+    <!-- /header -->
+    <view class="bg-default border-bn lazyload">
+        <div class="mycar-no tc">
+            <img src="img/no-search.png" width="60">
+            <p class="fs-16">未找到相关的商品</p>
+        </div>
+    </view>
+
+    <section class="search-list hide">
+        <dl class="border-t">
+            <dt class="border-b fb"><div class="plr12">历史搜索</div></dt>
+            <dd class="border-b"><div class="plr12">护肤品</div></dd>
+            <dd class="border-b"><div class="plr12">雅思兰黛眼霜</div></dd>
+            <dd class="border-b"><div class="plr12">雅思兰黛眼霜</div></dd>
+        </dl>
+        <div class="mt14 tc">
+            <a href="javascript:;" class="btn btn-default per80" title="">清空历史搜索</a>
+        </div>
+    </section>
+</body>
+<script src="js/lazyload.js"></script>
+<script src="js/util.js"></script>
+<script type="text/javascript">
+$(function(){
+    //懒人加载
+    $(function() {
+      $(".lazy").lazyload({effect: "fadeIn"});
+    });
+    //排行点击
+    var san = 0;
+    var $sorting = $('.rankcont');
+    $sorting.on('click', function() {
+        var index = $sorting.index(this);
+        if (!$(this).hasClass('rankactve')) {
+            san = 1;
+        };
+        $(this).addClass('rankactve').siblings().removeClass('rankactve');
+        $('section.ranklist i').removeClass('sanactive')
+        if (san == 0) {
+            $(this).find('i').eq(1).addClass('sanactive');
+            san = 1;
+        }else{
+            $(this).find('i').eq(0).addClass('sanactive');
+            san = 0;
+        };
+    });
+
+    //返回顶部
+    util.goTop();
+
+    //搜索
+    util.search2();
+    //下拉加载
+    $('view').scroll(function(){
+        var ht = $('view').height();
+        var docht = $('.document').outerHeight()
+        var scrt = $('view').scrollTop();
+        if (docht <= ht+scrt) {
+            console.log('开始加载')
+        }
+    });
+})
+</script>
+</html>

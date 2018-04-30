@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>迪士尼</title>
+	<meta http-equiv="Cache-Control" content="no-siteapp" /><!-- 百度禁止转码 -->
+	<meta name="keywords" content="这里写关键字">
+	<meta name="description" content="这里写页面描述">
+	<meta name ="viewport" content ="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"> 
+	<meta name="format-detection" content="telephone=no,email=no" /> <!-- 禁止自动识别为电话号码和邮件 -->
+	<script src="http://cdn.guanaitong.com/s2/mobile/V5.0/js/jquery.js"></script>
+	<link rel="stylesheet" href="http://cdn.guanaitong.com/s2/mobile/V5.0/css/base.css">
+	<!-- <script src="../../public/js/jquery.js"></script>
+	<link rel="stylesheet" href="../../public/css/base.css"> -->
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<view class="border-tn">
+		<div class="container" id="view1">
+			<div class="row-full lh0">
+				<img src="img/disney.jpg" width="100%">
+			</div>
+			<div class="row-full">
+				<div class="label-act">
+					<a href="javascript:;" class="flexbox f14">
+						<div class="flex-1">
+							<span class="fc-3">上海迪士尼</span><span class="fc-9">&nbsp;|&nbsp;门票</span>
+						</div>
+						<span class="ticket-img img1"></span>
+						<i class="icon-right vm"></i>
+					</a>
+				</div>
+			</div>
+
+			<div class="row-full">
+				<div class="label-act">
+					<a href="javascript:;" class="flexbox f14">
+						<div class="flex-1">
+							<span class="js-unitday fc-6"></span>
+						</div>
+						<i class="icon-right vm"></i>
+					</a>
+				</div>
+			</div>
+
+			<ul class="ticket-list">
+				<li class="flexbox border-b">
+					<div class="flex-1">
+						<p class="fc-3"><span class="fb f14">标准票</span>(￥<span class="js-unitprice">499</span>)</p>
+						<p class="fc-9">身高1.4米以上</p>
+					</div>
+					<div class="flex-1 tc">
+						<div class="controller">
+							<span class="symbol sub"></span>
+							<span class="number">0</span>
+							<span class="symbol add"></span>
+						</div>
+					</div>
+				</li>
+				<li class="flexbox border-b">
+					<div class="flex-1">
+						<p><span>老年票</span>(￥<span class="js-unitprice">499</span>)</p>
+						<p>65岁以上</p>
+					</div>
+					<div class="flex-1 tc">
+						<div class="controller">
+							<span class="symbol sub"></span>
+							<span class="number">0</span>
+							<span class="symbol add"></span>
+						</div>
+					</div>
+				</li>
+				<li class="flexbox border-b">
+					<div class="flex-1">
+						<p><span>儿童票</span>(￥<span class="js-unitprice">499</span>)</p>
+						<p>身高1米~1.4米</p>
+					</div>
+					<div class="flex-1 tc">
+						<div class="controller">
+							<span class="symbol sub"></span>
+							<span class="number">0</span>
+							<span class="symbol add"></span>
+						</div>
+					</div>
+				</li>
+			</ul>
+			<div class="row-full border-b">
+				<div class="label-act lh44 pl12 h44 fc-9">
+					婴幼儿(身高1米以下)免票
+				</div>
+			</div>
+		</div>
+
+		<section class="hide container" id="pay">
+			<div class="row-full">
+				<section class="form-group plr12">
+					<label class="form-label fc-6" for="phone">手机号</label>
+					<div class="form-control-box" wx-role="empty-input">
+						<input class="form-control" name="phone" type="text" maxlength="11" placeholder="请输入手机号码">
+					</div>
+				</section>
+				<section class="form-group plr12">
+					<label class="form-label fc-6" for="idnumber">证件号</label>
+					<div class="form-control-box" wx-role="empty-input">
+						<input class="form-control" name="idnumber" type="text" placeholder="请输入购票人身份证号">
+					</div>
+				</section>
+			</div>
+
+			<p class="lh20 mt25 mb50 f14">此身份证明将作为入院的唯一凭证，请务必准确填写。门票一经确认不得退票，入园时间48小时前可且仅可修改一次同票价的日期。</p>
+
+			<ul class="select-list">
+			</ul>
+			<div class="lh44 ht44 border-t f16"><span class="fr">￥<span class="totalPrice"></span></span>票价合计</div>
+			<a href="javascript:;" class="btn btn-primary mt25" id="submit">立即支付</a>
+		</section>
+	</view>
+	<footer>
+		<a href="javascript:;" class="ticket-btn border-t disabled">下一步</a>
+	</footer>
+</body>
+<script src="http://cdn.guanaitong.com/s2/mobile/V5.0/js/base.js"></script>
+<script src="http://cdn.guanaitong.com/s2/mobile/V5.0/js/gat.AlertMessage.js"></script>
+<script>
+	$(function(){
+        var loginStatus = "$!loginInfo.login";
+        function loginTip(){
+            if(loginStatus === 'false'){
+                message.showMessage({
+                    'btnTxt': '确定',
+                    'content': '<p style="font-size:16px;">登录超时！请退出重新进入。</p>',
+                    'autoclose':true
+                });
+                return true;
+            }
+        }
+        function nowday(){
+            var now = new Date();
+            var vday = "$!order.visitDate";
+            if (vday !='') {
+                now = new Date(vday);
+            }
+            var y = now.getFullYear(),m = ((now.getMonth()+1)<10 ? "0"+(now.getMonth()+1):(now.getMonth()+1)),d = (now.getDate() < 10 ? "0"+now.getDate() : now.getDate());
+            var tday = y+"-"+m+"-"+d;
+            if ($('.ticket-img').hasClass('img2')) {
+                var s = 3,n=5,arr = request (y,m,d,s,n);
+                var nexd = new Date(dateToUnix(tday)+86400000);
+                var ny = nexd.getFullYear(),nm = ((nexd.getMonth()+1)<10 ? "0"+(nexd.getMonth()+1) : (nexd.getMonth()+1)),nd = (nexd.getDate()<10 ? "0"+nexd.getDate() : nexd.getDate());
+                $('.js-unitday').html(tday+"~"+ny+"-"+nm+"-"+nd);
+                $('.js-unitday').attr('data-day',tday);
+                defaultTicket (arr);
+            }else{
+                $('.js-unitday').html(tday);
+                $('.js-unitday').attr('data-day',tday);
+                var s = 0,n=2,arr = request (y,m,d,s,n);
+                defaultTicket (arr);
+            }
+        }
+        nowday();
+
+        function request(y,m,d,s,n){
+
+            if(loginTip()) return;
+            var month = y+'-'+ m;
+            var datas=[{"type":1,'month':month},{"type":2,'month':month},{"type":3,'month':month},{"type":7,'month':month},{"type":8,'month':month},{"type":9,'month':month}];
+            var tday = y+'-'+m+'-'+d;
+            var arr = { visitDate:tday, orderId:'',orderProducts:[]};
+            for (var j =s; j <=n; j++) {
+                var data = datas[j],t = datas[j].type;
+                var lis = { price:'',quantity:'',type:''}
+                ajax(data,function(result){
+                    if (result) {
+                        for (var i = 0, len = result.data.length; i < len; i++) {
+                            var item = result.data[i];
+                            if (dateToUnix(tday) === dateToUnix(item.VisitDate)) {
+                                lis.price = item.Price == '-' ? 0 : item.Price;
+                                lis.quantity = item.Quantity == '-' ? 0 : item.Quantity;
+                                lis.type = t;
+                                arr.orderProducts.push(lis);
+                            }
+                        }
+                    }
+                });
+            }
+            return arr;
+        }
+        
+        function defaultTicket (arr){
+            if (arr.orderProducts.length == '0') return;
+            var tday = arr.visitDate;
+            $('.js-unitprice').each(function(i){
+                var price = arr.orderProducts[i].price;
+                if (price == null || price=='') {
+                    $('.js-unitprice').eq(i).html(0)
+                }else{
+                    $('.js-unitprice').eq(i).html(price);
+                }
+            });
+            $('.controller').each(function(i){
+                var num = arr.orderProducts[i].quantity;
+                if (num > 0) {
+                    $('.controller').eq(i).find('.add').addClass('active');
+                }
+                $('.controller').eq(i).attr('data-type',arr.orderProducts[i].type);
+                $('.controller').eq(i).attr('data-price',arr.orderProducts[i].price);
+                $('.controller').eq(i).attr('data-maxnum',arr.orderProducts[i].quantity);
+            })
+        }
+        //加减
+        $('.sub').click(function(){
+            if (!$(this).hasClass('active')) return;
+            var par = $(this).parent();
+            var txt = par.find('.number').text();
+            var maxnum = parseFloat($(this).parent().attr('data-maxnum'));
+            txt--;
+            par.find('.number').html(txt);
+            if (par.find('.number').text() == 0) {$(this).removeClass('active')};
+            number();
+        });
+        $('.add').click(function(){
+            if (!$(this).hasClass('active')) return;
+            var par = $(this).parent();
+            var maxnum = parseFloat($(this).parent().attr('data-maxnum'));
+            var txt = parseFloat(par.find('.number').text());
+            par.parent().find('.sub').addClass('active');
+            if (txt < maxnum && txt < 5) {
+                txt++;
+            }
+            if (txt == maxnum) {$(this).removeClass('active')}
+            par.find('.number').html(txt);
+            number();
+        });
+        function defaultNum(){
+            $('.controller').each(function(i){
+                var maxl =  parseFloat($('.controller').eq(i).attr('data-maxnum'));
+                var defnum = parseFloat($('.controller').eq(i).find('.number').text());
+                if(defnum >= maxl && maxl >0){
+                    $('.controller').eq(i).find('.number').html(maxl);
+                    $('.controller').eq(i).find('.add').removeClass('active');
+                    $('.controller').eq(i).find('.sub').addClass('active');
+                }
+                if(defnum < maxl && defnum>0){
+                    $('.controller').eq(i).find('.sub').addClass('active');
+                }
+                if(maxl ==0){
+                    $('.controller').eq(i).find('.number').html(maxl);
+                    $('.controller').eq(i).find('.add').removeClass('active');
+                }
+            })
+        }
+        defaultNum();
+        number();
+        function number(){
+            var maxnum = 0;
+            $('.controller').each(function(i){
+                var num = parseFloat($('.controller').eq(i).find('.number').text());
+                maxnum += num;
+            });
+            if (maxnum >= 5) {
+                $('.add').removeClass('active');
+            }else{
+                $('.add').each(function(i){
+                    var num1 = parseFloat($('.add').eq(i).parent().attr('data-maxnum')),num2 = parseFloat($('.add').eq(i).parent().find('.number').text());
+                    if(num1 > num2){
+                        $('.add').eq(i).addClass('active');
+                    }
+                });
+            }
+            if (maxnum > 0) {
+                $('.ticket-btn').removeClass('disabled');
+                $('#submit').removeClass('disabled');
+            }else{
+                $('.ticket-btn').addClass('disabled');
+                $('#submit').addClass('disabled');
+            };
+            console.log(maxnum)
+            if (maxnum>0) {
+                var totalPrice = 0;
+                $('.select-list').empty();
+                var list = $('.controller');
+                list.each(function(i){
+                    var listnum = parseFloat(list.eq(i).find('.number').text());                        //数量
+                    var listprice = parseFloat(list.eq(i).attr('data-price'));                      //价格
+                    var type = list.eq(i).attr('data-type');                                        //类型
+                    var price = conversionPrice(listprice);
+                    if ( i == 0 ){
+                        if (listnum == 0) return;
+                        $('.select-list').append('<li class="lh44 ht44 border-t"><span class="fr">￥'+price+'</span>标准票×'+listnum+'</li>');
+                        totalPrice +=price*listnum;
+                    }
+                    if ( i == 1 ){
+                        if (listnum == 0) return;
+                        $('.select-list').append('<li class="lh44 ht44 border-t"><span class="fr">￥'+price+'</span>老年票×'+listnum+'</li>');
+                        totalPrice +=price*listnum;
+                    }
+                    if ( i == 2 ){
+                        if (listnum == 0) return;
+                        $('.select-list').append('<li class="lh44 ht44 border-t"><span class="fr">￥'+price+'</span>儿童票×'+listnum+'</li>');
+                        totalPrice +=price*listnum;
+                    }
+                });
+                $('.totalPrice').html(conversionPrice(totalPrice));
+            }else{
+                $('.totalPrice').html(conversionPrice(0));
+                $('.select-list').empty();
+            }
+        }
+        //价格转换
+        function conversionPrice (price){
+            if ( price*100%100 == 0) {
+                price = price + '.00';
+            }else{
+                price = price*100%100;
+            }
+            return price;
+        }
+        
+        var orderId = "";
+        
+        //下一步
+        $('.ticket-btn').click(function(){
+            var $this = $(this);
+            
+            if(loginTip()) return;
+            var winht = $(window).outerHeight();
+            if ($this.hasClass('disabled')) return;
+            
+            var data = {visitDate:'',orderId:'',orderType:'',orderProducts:[]};
+            var list = $('.controller');
+            data.visitDate = $('.js-unitday').attr('data-day');
+            data.orderType = $('#orderType').attr("data-value");
+            data.orderId = orderId ? orderId : '$!order.orderId';
+            list.each(function(i){
+                var listnum = list.eq(i).find('.number').text().replace(/(^\s*)|(\s*$)/g, "");
+                if (listnum > 0) {
+                    var lis = {price:'',quantity:'',type:''};
+                    lis.price = list.eq(i).attr('data-price');
+                    lis.quantity = listnum;
+                    lis.type = list.eq(i).attr('data-type');
+                    data.orderProducts.push(lis);
+                }
+
+            })
+            $.ajax({
+                url:'/disney/order/addOrderPay',
+                type: "post",
+                data: JSON.stringify(data),
+                dataType: 'json',
+                async: false,
+                jsonp: "callback",
+                success: function(result){
+                    if(result.errno == 0){
+                        $this.addClass('hide');
+                        $('view').removeClass('border-tn').addClass('border-n');
+                        $('#pay').removeClass('hide').css('height',winht);
+                        $('body').scrollTop($(window).height())
+                        input2.val(result.data.mobile);
+                        orderId = result.data.orderId;
+                    }else{
+                        message.showMessage({
+                            'btnTxt': '确定',
+                            'content': '<p style="font-size:16px;">有错误发生<p>'+result.data.errmsg+'</p>',
+                            'autoclose':true,
+                            'callback': function(){
+                                
+                            }
+
+                        });
+                        //$this.removeClass("hide");
+                    }
+                },error: function() {
+                    message.showMessage({
+                        'btnTxt': '确定',
+                        'content': '<p style="font-size:16px;">有错误发生<p>系统繁忙，请稍后再试</p>',
+                        'autoclose':true,
+                        'callback': function(){
+                            
+                        }
+
+                    });
+                } 
+            })
+        })
+
+        //日期格式转换
+        function dateToUnix(string) {
+            var f = string.split(' ', 2);
+            var d = (f[0] ? f[0] : '').split('-', 3);
+            var t = (f[1] ? f[1] : '').split(':', 3);
+            return (new Date(
+                parseInt(d[0], 10) || null, (parseInt(d[1], 10) || 1) - 1,
+                parseInt(d[2], 10) || null,
+                parseInt(t[0], 10) || null,
+                parseInt(t[1], 10) || null,
+                parseInt(t[2], 10) || null
+            )).getTime();
+        }
+        function ajax(data,successfn){
+            $.ajax({
+                url:'/disney/order/getProducts',
+                type: "get",
+                data: data,
+                dataType: 'json',
+                async: false,
+                jsonp: "callback",
+                success: function(result){
+                    successfn&&successfn(result);
+                }
+            })
+        }
+        //提交
+        var input =$('input[type=text]'), input1 = $('input[name=idnumber]'),input2 = $('input[name=phone]');
+        $('#submit').click(function(){
+            if ($(this).hasClass('disabled')) return;
+            var sub = true;
+            input.each(function(i){
+                if (input.eq(i).hasClass('error')) {
+                    sub = false;
+                }
+                if(input.eq(i).val() == '') {
+                    input.eq(i).addClass('error');
+                    sub = false;
+                }
+            });
+            if (sub) {
+                var cardID = input1.val();
+                var mobile = input2.val();
+                
+                var data = {cardID:cardID,mobile:mobile,visitDate:'',orderId:'',orderType:'',orderProducts:[]};
+                var list = $('.controller');
+                data.visitDate = $('.js-unitday').attr('data-day');
+                data.orderType = $('#orderType').attr("data-value");
+                data.orderId = orderId ? orderId : '$!order.orderId';
+                list.each(function(i){
+                    var listnum = list.eq(i).find('.number').text().replace(/(^\s*)|(\s*$)/g, "");
+                    if (listnum > 0) {
+                        var lis = {price:'',quantity:'',type:''};
+                        lis.price = list.eq(i).attr('data-price');
+                        lis.quantity = listnum;
+                        lis.type = list.eq(i).attr('data-type');
+                        data.orderProducts.push(lis);
+                    }
+
+                });
+                $.ajax({
+                    url:'/disney/order/updateOrder',
+                    type: "post",
+                    data: JSON.stringify(data),
+                    dataType: 'json',
+                    jsonp: "callback",
+                    success: function(result){
+                        if(result.errno == 0){
+                            window.location.href=result.data;
+                        }else{
+                            message.showMessage({
+                                'btnTxt': '确定',
+                                'content': '<p style="font-size:16px;">有错误发生<p>'+result.data.errmsg+'</p>',
+                                'autoclose':true,
+                                'callback': function(){
+                                    
+                                }
+
+                            });
+                        }
+                    }
+                });
+            }else{
+                message.showNotify({
+                    'content':'<p class="icon-round-uninstall fc-f fs-24"></p>'+'<p>手机号码和证件号码不能为空</p>',
+                    'delay': '1000'
+                });
+                return false;
+            }
+        });
+
+        input1.blur(function(){
+            var reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+            if ($(this).val()=='' || !reg.test($(this).val())) {
+                $(this).addClass('error');
+                message.showNotify({
+                    'content':'<p class="icon-round-uninstall fc-f fs-24"></p>'+'<p>证件号码格式错误请重新输入</p>',
+                    'delay': '1000'
+                });
+            }else{
+                $(this).removeClass('error');
+            }
+        });
+
+        input2.blur(function(){
+            var reg = /^1\d{10}$/;
+            if (!reg.test($(this).val())){
+                $(this).addClass('error');
+                message.showNotify({
+                    'content':'<p class="icon-round-uninstall fc-f fs-24"></p>'+'<p>手机号码格式错误请重新输入</p>',
+                    'delay': '1000'
+                });
+            }else{
+                $(this).removeClass('error');
+            }
+        });
+    })
+</script>
+</html>

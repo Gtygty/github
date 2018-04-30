@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp" /><!-- 百度禁止转码 -->
+    <meta name ="viewport" content ="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"> 
+    <meta name="format-detection" content="telephone=no,email=no" /> <!-- 禁止自动识别为电话号码和邮件 -->
+    <meta name="keywords" content="这里写关键字">
+    <meta name="description" content="这里写页面描述">
+    <title>个人中心-填写报销信息</title>
+    <script type="text/javascript" src="../../public/js/jquery.js" ></script>
+    <script type="text/javascript" src="js/height.js" ></script>
+    <script type="text/javascript" src="../../public/js/base.js"></script>
+    <link rel="stylesheet" href="css/phone.css" />
+    <link rel="stylesheet" href="css/theme.css" />
+</head>
+<body>
+    <view class="border-n bg-f2">
+        <div class="container">
+            <div class="border-b">
+                <div class="row-full write-title mb0">
+                    体检信息
+                </div>
+            </div>
+
+            <div class="border-b">
+                <div class="row-full bg-f mb0">
+                    <section class="form-group flex-box border-b">
+                        <label class="form-label" for="name">体检人</label>
+                        <div class="form-control-box flex1 pl6" id="name">王雪</div>
+                    </section>
+
+                    <section class="form-group flex-box border-b">
+                        <label class="form-label" for="institutions">体检机构</label>
+                        <div class="form-control-box flex1" wx-role="empty-input">
+                            <input class="form-control" id="institutions" type="text" value="" placeholder="请输入与发票对应的名称">
+                            <!-- <i class="form-control-right icon-close"></i> -->
+                        </div>
+                    </section>
+
+                    <section class="form-group flex-box border-b">
+                        <label class="form-label" for="date">体检日期</label>
+                        <div class="form-control-box flex1">
+                            <input class="form-control form-date opacity0" id="date" type="date" value="">
+                            <input class="form-control" type="text" value="" placeholder="请输入日期">
+                            <img class="icon-date" src="img/date.png" alt="">
+                        </div>
+                    </section>
+
+                    <section class="form-group flex-box border-b">
+                        <label class="form-label" for="money">报销金额</label>
+                        <div class="form-control-box flex1" wx-role="empty-input">
+                            <input class="form-control" id="money" type="text" value="" placeholder="实报实销，报销上限¥200.00">
+                            <!-- <i class="form-control-right icon-close"></i> -->
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <div class="border-b">
+                <div class="row-full write-title mb0">
+                    账户信息
+                </div>
+            </div>
+
+            <div class="border-b">
+                <div class="row-full bg-f mb0">
+                    <section class="form-group flex-box border-b">
+                        <label class="form-label" for="carname">持卡人</label>
+                        <div class="form-control-box flex1 pl6" id="carname">王雪</div>
+                    </section>
+
+                    <section class="form-group flex-box border-b">
+                        <label class="form-label" for="carnumber">收款卡号</label>
+                        <div class="form-control-box flex1" wx-role="empty-input">
+                            <input class="form-control" id="carnumber"  type="text" value="" placeholder="请输入报销款转入账号">
+                            <!-- <i class="form-control-right icon-close"></i> -->
+                            <!-- 有卡号，删除“hide”，给上input加“hide”下面提示也删除“hide” -->
+                            <span class="hide">6222021001102054310</span>
+                        </div>
+                    </section>
+
+                    <section class="form-group flex-box border-b">
+                        <label class="form-label" for="bank">所属银行</label>
+                        <div class="form-control-box flex1" wx-role="empty-input">
+                            <input class="form-control" id="bank" type="text" value="" placeholder="请输入卡所属银行">
+                            <!-- <i class="form-control-right icon-close"></i> -->
+                        </div>
+                    </section>
+
+                    <section class="form-group flex-box border-b">
+                        <label class="form-label" for="branch">开户支行</label>
+                        <div class="form-control-box flex1" wx-role="empty-input">
+                            <input class="form-control" id="branch" type="text" value="" placeholder="请输入开卡支行">
+                            <!-- <i class="form-control-right icon-close"></i> -->
+                        </div>
+                    </section>
+
+                    <section class="form-group flex-box border-b">
+                        <label class="form-label" for="phone">手机号码</label>
+                        <div class="form-control-box flex1" wx-role="empty-input">
+                            <input class="form-control" id="phone" type="text" value="" placeholder="请输入手机号码">
+                            <!-- <i class="form-control-right icon-close"></i> -->
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <p class="flex-box warn hide"><i class="icon-warn"></i>若所提供卡号有误，请联系企业负责体检的人员。</p>
+            <div class="row-full mt44">
+                <a class="btn btn-primary" href="#" title=""id="btn-submit">立即申请体检报销</a>
+            </div>
+        </div>
+    </view>
+</body>
+<script src="../../public/js/gat.AlertMessage.js"></script>
+<script type="text/javascript" charset="utf-8">
+    $('input.form-date').click(function(){
+        $(this).removeClass('opacity0');
+        $(this).next().addClass('of-v');
+    })
+    $('#date').blur(function(event) {
+        if ($(this).val() == "") {
+            $(this).next().removeClass('of-v');
+        };
+    });
+    /*弹层效果*/
+    var chooseHtml = '<h3 class="tc">温馨提示</h3>'
+                        +'<p class="fc-9 fs-12 mt8">什么什么不能为空</p>';
+    $('#btn-submit').click(function(){
+        message.showMessage({
+            'btnTxt':'我知道了',
+            'content':chooseHtml
+        });
+    })
+</script>
+</html>

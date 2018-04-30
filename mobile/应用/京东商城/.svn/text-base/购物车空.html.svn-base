@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp" /><!-- 百度禁止转码 -->
+    <meta name ="viewport" content ="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"> 
+    <meta name="format-detection" content="telephone=no,email=no" /> <!-- 禁止自动识别为电话号码和邮件 -->
+    <meta name="keywords" content="这里写关键字">
+    <meta name="description" content="这里写页面描述">
+    <title>京东商城-购物车为空</title>
+    <link rel="stylesheet" href="css/phone.css" />
+    <link rel="stylesheet" href="css/theme.css" />
+    <script type="text/javascript" src="http://cdn.guanaitong.com/s2/mobile/V5.0/js/jquery.js"></script>
+    <script type="text/javascript" src="js/response.js" ></script>
+</head>
+<body>
+    <view class="bg-f border-tn">
+        <div class="mycar-no tc">
+            <span><i class="icon-car"></i></span>
+            <p class="fs-16">购物车是空的,您可以</p>
+            <a class="btn btn-default sm" style="width:110px;" href="javascript:;">去逛逛</a>
+        </div>
+    </view>
+    <footer>
+        <div class="flex-box border-t footer">
+            <div class="flex1"><a href="javascript:;" title=""><i class="icon-home icon-lg"></i>京东优选</a></div>
+            <div class="flex1"><a href="javascript:;" title=""><i class="icon-classify icon-lg"></i>分类</a></div>
+            <div class="flex1 pos-r factive">
+                <a href="javascript:;" title="">
+                    <i class="icon-car icon-lg"></i>购物车
+                    <span class="goods-number hide">3</span>
+                </a>
+            </div>
+            <div class="flex1"><a href="javascript:;" title=""><i class="icon-my icon-lg"></i>我的京东</a></div>
+        </div>
+    </footer>
+</body>
+<script type="text/javascript">
+$(function(){
+
+})
+</script>
+</html>

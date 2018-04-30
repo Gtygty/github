@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>页面标题</title>
+	<meta http-equiv="Cache-Control" content="no-siteapp" /><!-- 百度禁止转码 -->
+	<meta name="keywords" content="这里写关键字">
+	<meta name="description" content="这里写页面描述">
+	<meta name ="viewport" content ="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"> 
+	<meta name="format-detection" content="telephone=no,email=no" /> <!-- 禁止自动识别为电话号码和邮件 -->
+	<script src="../public/js/jquery.js"></script>
+	<link rel="stylesheet" href="../public/css/base.css">
+</head>
+<body class="bg-inverse">
+<section class="order-info border-b">
+	<section class="consignee-info flexbox" wx-forward-url="http://www.baidu.com">
+		<i class="icon-location"></i>
+		<div class="consignee-info-txt">
+			<div class="important flexbox">
+				<div>张玉</div>
+				<div class="tr">13564718864</div>
+			</div>
+			<div class="address">收货地址：上海市淮海西路55号申通信息广场55号20楼C-H座</div>
+		</div>
+		<i class="icon-right"></i>
+	</section>
+</section>
+<div class="space"></div>
+<section class="order-detail border-t border-b">
+	<header class="flexbox container icon-cart">关爱商城</header>
+	<section class="order-entity">	
+		<section class="order-entity-item">
+			<div class="entity-img"><img src="../public/img/_temp_/entity.jpg" alt=""></div>
+			<div class="entity-desc">
+				<div class="title">科莱丽声波净颜仪Mia2便携型 白色科莱丽声波净颜仪Mia2便携型 白色科莱丽声波净颜仪Mia2便携型 白色</div>
+				<div class="sku">大小、颜色</div>
+			</div>
+			<div class="entity-pay">
+				<div>￥10000.00</div>
+				<div class="quantity">×1</div>
+			</div>
+		</section>
+		<section class="order-entity-item">
+			<div class="entity-img"><img src="../public/img/_temp_/entity.jpg" alt=""></div>
+			<div class="entity-desc">
+				<div class="title">科莱丽声波净颜仪Mia2便携型 白色科莱丽声波净颜仪Mia2便携型 白色科莱丽声波净颜仪Mia2便携型 白色</div>
+				<div class="sku">大小、颜色</div>
+			</div>
+			<div class="entity-pay">
+				<div>￥10000.00</div>
+				<div class="quantity">×1</div>
+			</div>
+		</section>
+	</section>
+	<section class="order-user-message flexbox border-t">
+		<label>买家留言：</label>
+		<div wx-role="empty-input"><input type="text" class="f12" placeholder="请留言"></div>
+	</section>
+	<section class="order-cost-total border-t">
+		<p class="freight">运费：0.00</p>
+		<p class="total">共2件商品，合计：1000.00</p>
+	</section>
+</section>
+<div class="space"></div>
+<section class="order-detail border-t border-b">
+	<header class="flexbox container icon-shop">欧舒丹官方旗舰店</header>
+	<section class="order-entity">	
+		<section class="order-entity-item">
+			<div class="entity-img"><img src="../public/img/_temp_/entity.jpg" alt=""></div>
+			<div class="entity-desc">
+				<div class="title">科莱丽声波净颜仪Mia2便携型 白色科莱丽声波净颜仪Mia2便携型 白色科莱丽声波净颜仪Mia2便携型 白色</div>
+				<div class="sku">大小、颜色</div>
+			</div>
+			<div class="entity-pay">
+				<div>￥10000.00</div>
+				<div class="quantity">×1</div>
+			</div>
+		</section>
+		<section class="order-entity-item">
+			<div class="entity-img"><img src="../public/img/_temp_/entity.jpg" alt=""></div>
+			<div class="entity-desc">
+				<div class="title">科莱丽声波净颜仪Mia2便携型 白色科莱丽声波净颜仪Mia2便携型 白色科莱丽声波净颜仪Mia2便携型 白色</div>
+				<div class="sku">大小、颜色</div>
+			</div>
+			<div class="entity-pay">
+				<div>￥10000.00</div>
+				<div class="quantity">×1</div>
+			</div>
+		</section>
+	</section>
+	<section class="order-user-message flexbox border-t">
+		<label>买家留言：</label>
+		<div wx-role="empty-input"><input type="text" class="f12" placeholder="请留言"></div>
+	</section>
+	<section class="order-cost-total border-t">
+		<p class="freight">运费：0.00</p>
+		<p class="total">共2件商品，合计：1000.00</p>
+	</section>
+</section>
+<div class="space"></div>
+
+<section class="footer-fixed-holder">
+	<section class="fixed-bottom pay-fixed-bottom">
+		<div class="info">共1件，合计：<span class="price">1000.00</span></div>
+		<div>
+			<a class="btn btn-primary" id="btn-pay">结算</a>
+		</div>
+	</section>
+</section>
+<div class="space"></div>
+<script src="../public/js/base.js"></script>
+		
+</body>
+</html>

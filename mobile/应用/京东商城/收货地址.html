@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp" /><!-- 百度禁止转码 -->
+    <meta name ="viewport" content ="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"> 
+    <meta name="format-detection" content="telephone=no,email=no" /> <!-- 禁止自动识别为电话号码和邮件 -->
+    <meta name="keywords" content="这里写关键字">
+    <meta name="description" content="这里写页面描述">
+    <title>京东商城-收获地址</title>
+    <link rel="stylesheet" href="css/phone.css" />
+    <link rel="stylesheet" href="css/theme.css" />
+    <script type="text/javascript" src="http://cdn.guanaitong.com/s2/mobile/V5.0/js/jquery.js"></script>
+    <script type="text/javascript" src="js/response.js" ></script>
+</head>
+<body>
+    <view class="bg-f border-tn">
+        <div class="container">
+            <!-- 地址 -->
+            <div class="m-group border-b flex-box">
+                <div class="icon-check price"></div>
+                <div class="flex1 mr14 border-r ads-list">  
+                    <p class="adres-cont pl8 fs-14 mb8 primary"><span>收货人：易念念</span><span class="ml26">186****7079</span></p>
+                    <p class="adres-cont pl8 ellipsis ellipsis2 fc-6"><span class="bg-primary fc-f plr5 mr3">默认</span>上海市青浦区徐泾镇西郊家园178号</p>
+                </div>
+                <div class="icon-address-book"></div>
+            </div>
+
+            <div class="m-group border-b flex-box">
+                <div class="icon-check price hide"></div>
+                <div class="flex1 mr14 border-r ads-list">  
+                    <p class="adres-cont pl8 fs-14 mb8"><span>收货人：易念念</span><span class="ml26">186****7079</span></p>
+                    <p class="adres-cont pl8 ellipsis ellipsis2 fc-6">上海市青浦区徐泾镇西郊家园178号</p>
+                </div>
+                <div class="icon-address-book"></div>
+            </div>
+
+            <div class="m-group border-b flex-box">
+                <div class="icon-check price hide"></div>
+                <div class="flex1 mr14 border-r ads-list">  
+                    <p class="adres-cont pl8 fs-14 mb8"><span>收货人：易念念</span><span class="ml26">186****7079</span></p>
+                    <p class="adres-cont pl8 ellipsis ellipsis2 fc-6">上海市青浦区徐泾镇西郊家园178号</p>
+                </div>
+                <div class="icon-address-book"></div>
+            </div>
+        </div>  
+    </view>
+
+    <footer class="flex-box plr12">
+        <div class="flex1">
+            <a href="javascript:;" class="btn btn-primary"><i class="icon-add fc-f mr3"></i>新建地址</a>
+        </div>
+    </footer>
+</body>
+<script src="http://cdn.guanaitong.com/s2/mobile/V5.0/js/gat.AlertMessage.js"></script>
+<script type="text/javascript">
+$(function(){
+    $('.ads-list').click(function(){
+        var group = $(this).parent();
+        group.find('.icon-check').removeClass('hide');
+        group.siblings().find('.icon-check').addClass('hide');
+    })
+})
+</script>
+</html>

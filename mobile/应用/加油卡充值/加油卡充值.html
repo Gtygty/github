@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>加油卡充值</title>
+	<meta http-equiv="Cache-Control" content="no-siteapp" /><!-- 百度禁止转码 -->
+	<meta name="keywords" content="这里写关键字">
+	<meta name="description" content="这里写页面描述">
+	<meta name ="viewport" content ="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"> 
+	<meta name="format-detection" content="telephone=no,email=no" /> <!-- 禁止自动识别为电话号码和邮件 -->
+	<script src="../../public/js/jquery.js"></script>
+	<link rel="stylesheet" href="../../public/css/base.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-inverse">
+	<div class="border-t border-b bg-f">
+		<ul class="clearfix card-list">
+			<li class="checked">
+				<div class="oilcard">
+					<p class="oilcard-img">
+						<img src="img/oilcard1.png" alt="">
+					</p>
+					<span class="oilcard-txt">中国石化</span>
+					<i class="triangle"></i>
+				</div>
+			</li>
+			<li class="">
+				<div class="oilcard">
+					<p class="oilcard-img">
+						<img src="img/oilcard2.png" alt="">
+					</p>
+					<span class="oilcard-txt">中国石油</span>
+					<i class="triangle"></i>
+				</div>
+			</li>
+		</ul>
+		<div class="card-con border-t">
+			<section class="form-group card-number">
+				<label class="form-label">油卡卡号</label>
+				<div class="form-control-box" wx-role="empty-input">
+					<input class="form-control" type="text" maxlength="19" id="card1" placeholder="请输入19位中石化卡号">
+				</div>
+			</section>
+			<section class="form-group card-number">
+				<label class="form-label">油卡卡号</label>
+				<div class="form-control-box" wx-role="empty-input">
+					<input class="form-control" type="text" maxlength="16" id="card2" placeholder="请输入16位中石油卡号">
+				</div>
+			</section>
+			<section class="form-group">
+				<label class="form-label">手机号</label>
+				<div class="form-control-box" wx-role="empty-input">
+					<input class="form-control" type="tel" maxlength="11" id="phone" placeholder="请输入11位手机号码">
+				</div>
+			</section>
+		</div>
+	</div>
+
+	<div class="space"></div>
+
+	<div class="border-t border-b mb10">
+		<ul class="clearfix amount-list">
+			<li class="active">
+				<div class="amount">
+					50元<i class="triangle"></i>
+				</div>
+			</li>
+			<li class="">
+				<div class="amount">
+					100元<i class="triangle"></i>
+				</div>
+			</li>
+			<li class="">
+				<div class="amount">
+					200元<i class="triangle"></i>
+				</div>
+			</li>
+			<li class="">
+				<div class="amount">
+					500元<i class="triangle"></i>
+				</div>
+			</li>
+			<li class="">
+				<div class="amount">
+					1000元<i class="triangle"></i>
+				</div>
+			</li>
+			<li class="disabled">
+				<div class="amount">
+					2000元<br/><small class="f10">暂时缺货</small><i class="triangle"></i>
+				</div>
+			</li>
+		</ul>
+	</div>
+
+	<section class="container mb30">
+		<p class="light">仅支持积分支付，且需收取2%服务费</p>
+
+		<div class="mt40">
+			<a class="btn btn-primary" href="javascript:;">立即购买</a>
+		</div>
+
+		<p class="mt12">
+			<img src="img/question.png" class="vm fl mr5" width="14" height="14" alt="">
+			<a href="javascript:;" title="">常见问题</a>
+		</p>
+
+		<div class="mt16">
+			<h3 class="f12 mb8">温馨提示</h3>
+			<div class="lh20 light">
+				<label class="fl light col-1">1.</label>
+				<p class="col-offect-1">中石化加油卡仅支持状态正常的主卡充值，副卡不能充值。</p>
+			</div>
+			<div class="lh20 light">
+				<label class="fl light col-1">2.</label>
+				<p class="col-offect-1">中石化加油卡分为单用户卡和多用户卡，单用户卡充值完成后持卡到加油站完成圈存后即可加油。<br/>多用户卡的主卡完成充值后需要先预分配，然后圈存后方可正常加油。</p>
+			</div>
+		</div>
+	</section>
+
+	<a href="javascript:;" class="tabulation"><i class="icon-tabulation primary f20"></i></a>
+
+</body>
+<script src="../../public/js/base.js"></script>
+<script src="../../public/js/gat.AlertMessage.js"></script>
+<script type="text/javascript">
+$(function(){
+	//油卡
+	$('.card-number').eq($('.card-list li.checked').index()).show().siblings('.card-number').hide();
+	$('.card-list li').on('click', function() {
+		$(this).addClass('checked').siblings().removeClass('checked');
+		$('.card-number').eq($(this).index()).show().siblings('.card-number').hide();
+	});
+	//面值
+	$('.amount-list li').on('click', function() {
+        if ($(this).hasClass('disabled')) return;
+        $(this).addClass('active').siblings().removeClass('active');
+    });
+
+	// 卡号输入
+	$('.card-number input').on('blur',function(){
+		var str = $(this).val();
+		var cardName=$(this).attr('id');
+		if((cardName=='card1'&&str.length!=19)||(cardName=='card2'&&str.length!=16)){
+			message.showNotify({
+				'content':'卡号输入有误',
+				'delay': '1000'
+			});
+		}else{
+			$(this).after('<span class="card-name">谭**</span>');
+		}
+	})
+	$('.card-number input').on('focus',function(){
+		$('.card-name').remove();
+	})
+})
+</script>
+</html>

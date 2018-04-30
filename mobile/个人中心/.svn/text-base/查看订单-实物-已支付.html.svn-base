@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>页面标题</title>
+	<meta http-equiv="Cache-Control" content="no-siteapp" /><!-- 百度禁止转码 -->
+	<meta name="keywords" content="这里写关键字">
+	<meta name="description" content="这里写页面描述">
+	<meta name ="viewport" content ="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"> 
+	<meta name="format-detection" content="telephone=no,email=no" /> <!-- 禁止自动识别为电话号码和邮件 -->
+	<script src="../public/js/jquery.js"></script>
+	<link rel="stylesheet" href="../public/css/base.css">
+</head>
+<body class="bg-inverse">
+<section class="order-info border-b">
+	<!-- 
+	订单状态：classname
+	已发货：delivered
+	已取消：canceled
+	已支付：paid
+	已完成：completed
+	  -->
+	<section class="icon- flexbox order-state paid">订单已支付</section>
+	<section class="consignee-info flexbox border-t">
+		<i class="icon-location"></i>
+		<div class="consignee-info-txt">
+			<div class="important flexbox">
+				<div>张玉</div>
+				<div class="tr">13564718864</div>
+			</div>
+			<div class="address">收货地址：上海市淮海西路55号申通信息广场55号20楼C-H座</div>
+		</div>
+	</section>
+</section>
+<div class="space"></div>
+<section class="order-detail border-t border-b">
+	<header class="flexbox container icon-cart">关爱商城</header>
+	<section class="order-entity">	
+		<section class="order-entity-item">
+			<div class="entity-img"><img src="../public/img/_temp_/entity.jpg" alt=""></div>
+			<div class="entity-desc">
+				<div class="title">科莱丽声波净颜仪Mia2便携型 白色科莱丽声波净颜仪Mia2便携型 白色科莱丽声波净颜仪Mia2便携型 白色</div>
+				<div class="sku">大小、颜色</div>
+			</div>
+			<div class="entity-pay">
+				<div>￥10000.00</div>
+				<div class="quantity">×1</div>
+			</div>
+		</section>
+		<section class="order-user-message flexbox border-t">
+			<label>买家留言：</label>
+			<div>请周六送货，谢谢~请周六送货，谢谢~请周六送货，谢谢~请周六送货，谢谢~</div>
+		</section>
+	</section>
+	<section class="order-cost-detail border-t">
+		<div class="item flexbox">
+			<div>运费：</div>
+			<div class="tr">0.00</div>
+		</div>
+		<div class="item flexbox">
+			<div>关爱积分：</div>
+			<div class="tr">800.00</div>
+		</div>
+		<div class="item flexbox">
+			<div>个人现金：</div>
+			<div class="tr">20.00</div>
+		</div>
+		<div class="item flexbox">
+			<div>微信支付：</div>
+			<div class="tr">180.00</div>
+		</div>
+	</section>
+	<section class="order-cost-total border-t">
+		<p class="total">共3件，订单金额：<strong>2244.00</strong></p>
+	</section>
+</section>
+<div class="space"></div>
+<section class="order-info-other border-t border-b">
+	<p>订单编号：1346098890045 </p>
+	<p>创建时间：2015.11.13   12:36:27 </p>
+</section>
+<section class="footer-fixed-holder">
+	<section class="fixed-bottom order-fixed-bottom">
+		<a href="javascript:;" class="btn btn-default btn-xs">返回</a>
+	</section>
+</section>
+<div class="space"></div>
+<script src="../public/js/base.js"></script>
+		
+</body>
+</html>

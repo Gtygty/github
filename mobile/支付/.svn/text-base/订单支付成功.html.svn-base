@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>页面标题</title>
+	<meta http-equiv="Cache-Control" content="no-siteapp" /><!-- 百度禁止转码 -->
+	<meta name="keywords" content="这里写关键字">
+	<meta name="description" content="这里写页面描述">
+	<meta name ="viewport" content ="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"> 
+	<meta name="format-detection" content="telephone=no,email=no" /> <!-- 禁止自动识别为电话号码和邮件 -->
+	<script src="../public/js/jquery.js"></script>
+	<link rel="stylesheet" href="../public/css/base.css">
+</head>
+<body class="bg-inverse">
+<section class="freeback success">
+	<i class="icon-round-check"></i>
+	<p class="txt">订单支付成功</p>
+</section>
+<section class="container pay-end-info mt16 border-t border-b">
+	<section class="strict-label-item flexbox">
+		<div class="flex-1">订单编号：</div><div class="flex-1 tr">1055005442</div>
+	</section>
+	<section class="strict-label-item flexbox">
+		<div class="flex-1">交易金额：</div><div class="flex-1 tr">290.00</div>
+	</section>
+	<section class="strict-label-item flexbox">
+		<div class="flex-1">交易时间：</div><div class="flex-1 tr">2016-04-13</div>
+	</section>
+</section>
+<section class="container mt16">
+	<section class="row">
+		<div class="col-xs-6">
+			<a href="javascript:;" class="btn btn-default">随便逛逛</a>
+		</div>
+		<div class="col-xs-6">
+			<a href="javascript:;" class="btn btn-default">查看订单</a>
+		</div>
+	</section>
+</section>
+<section class="mt32">
+	<a href="#"><img width="100%" src="../public/img/banner/payend.png" alt="placeholder+image"></a>
+</section>
+</body>
+</html>

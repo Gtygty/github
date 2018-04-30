@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>手机充值</title>
+	<meta http-equiv="Cache-Control" content="no-siteapp" /><!-- 百度禁止转码 -->
+	<meta name="keywords" content="这里写关键字">
+	<meta name="description" content="这里写页面描述">
+	<meta name ="viewport" content ="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"> 
+	<meta name="format-detection" content="telephone=no,email=no" /> <!-- 禁止自动识别为电话号码和邮件 -->
+	<script src="../../public/js/jquery.js"></script>
+	<link rel="stylesheet" href="../../public/css/base.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-inverse">
+	<section class="container bg-f">
+		<section class="form-group">
+			<label class="form-label" for="payPw1">手机号码</label>
+			<div class="form-control-box" wx-role="empty-input">
+				<input class="form-control" id="phone1" type="text" maxlength="11" placeholder="请输入手机号码">
+			</div>
+		</section>
+		<section class="form-group">
+			<label class="form-label" for="payPw2">确认号码</label>
+			<div class="form-control-box" wx-role="empty-input">
+				<input class="form-control" id="phone2" type="text" maxlength="11" placeholder="请再次输入手机号码">
+			</div>
+		</section>
+		<section class="form-group">
+			<label class="form-label" for="payPwAgain">面值</label>
+			<div class="form-control-box">
+				<input class="form-control" id="payPwAgain" type="text" placeholder="请输入50的倍数，上限为500">
+				<span class="money">元</span>
+			</div>
+		</section>
+	</section>
+	<section class="container">
+		<p class="light lh20 mt6">需收取3%的服务费</p>
+		<button class="btn btn-primary mt25" id="sure">确定</button>
+		<p class="mt16 dark">温馨提示</p>
+		<p class="light lh20">月初月末为充值高峰，话费到账可能会延迟或失败，建议错时充值。如若充值失败将退回积分，敬请谅解，感谢支持！</p>
+	</section>
+	<a href="javascript:;" class="tabulation">
+		<img src="img/detail.png" class="mt6" width="20" height="24">
+	</a>
+	<section class="prepaid border-t flexbox hide">
+		<div class="flex-1">
+			<button class="btn btn-default btn-xs">充值记录</button>
+		</div>
+	</section>
+</body>
+<script src="../../public/js/base.js"></script>
+<script src="../../public/js/gat.AlertMessage.js"></script>
+<script>
+    window.onload= function(){
+
+        $('#phone1').blur(function(){
+            var str = $(this).val();
+            var re = /^1\d{10}$/;
+            if (!re.test(str)){
+	            message.showNotify({
+		            'content':'无效的手机号！',
+		            'delay': '1000'
+		        });
+            }
+        })
+
+        $('#phone2').blur(function(){
+            var str = $(this).val();
+            if (str != $('#phone1').val()){
+	            message.showNotify({
+		            'content':'两次输入不一致！',
+		            'delay': '1000'
+		        });
+            }
+        })
+
+        $('#payPwAgain').blur(function(){
+        	if ($(this).val() > 500) {
+	            message.showNotify({
+		            'content':'充值上限为500元！',
+		            'delay': '1000'
+		        });
+        	}
+        })
+    }
+</script>
+</html>

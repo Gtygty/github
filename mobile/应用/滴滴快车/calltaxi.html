@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp" /><!-- 百度禁止转码 -->
+    <meta name ="viewport" content ="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"> 
+    <meta name="format-detection" content="telephone=no,email=no" /> <!-- 禁止自动识别为电话号码和邮件 -->
+    <meta name="keywords" content="这里写关键字">
+    <meta name="description" content="这里写页面描述">
+    <title>关爱通-滴滴出行</title>
+    <script src="http://cdn.guanaitong.com/s2/mobile/V5.0/js/jquery.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg">
+<section class="calltaxi-wrap">
+  <h2 class="calltaxi-title">收到，正在为您叫车</h2>
+  <p class="calltaxi-subtitle">附近的专车会优先通知</p>
+  <div class="calltaxi-timer">
+      <p class="calltaxi-timer-txt" id="calltaxi-timer-txt">00:00</p>
+      <div class="calltaxi-timer-rotate" id="calltaxi-timer-rotate">
+        <div class="pointer"></div>
+      </div>
+  </div>
+</section>
+
+<section class="fixed-btns container">
+  <button class="btn btn-default" id="cancel-call">取消叫车</button>
+</section>
+
+
+<script src="http://cdn.guanaitong.com/s2/mobile/V5.0/js/gat.AlertMessage.js"></script>
+<script type="text/javascript">
+
+    (function(){
+      var oRotateBox = document.getElementById('calltaxi-timer-rotate');
+      var oTimerTxt = document.getElementById('calltaxi-timer-txt');
+      var totalSeconds = 0;
+      var isTips=false;//是否提醒过重新发单
+
+      timer=setInterval(function(){
+        var minAngle = 360/(60*10);//每秒度数
+        totalSeconds++;
+        oTimerTxt.innerHTML = formatTime(totalSeconds);
+        rotate(minAngle*totalSeconds);
+
+        if(totalSeconds>=300 && !isTips){
+          isTips=true;
+          message.showConfirm({
+              content: '无人响应，是否重新发起订单？',
+              rightBtnCallback: function(){
+                  window.location.href = "index.html"
+              }
+          })
+        }else if(totalSeconds>=600){
+          window.location.href = "feedbackNoresponse.html"
+        } 
+
+      },1000)
+
+
+      function formatTime(i){//格式化
+        return fillZero(Math.floor(i/60))+':'+fillZero(i%60);
+      }
+
+      function fillZero(i){ //补0
+        return i<10 ? ('0'+i) : i;
+      }
+
+      function rotate(angle){
+        oRotateBox.style.transform = 'rotate('+ angle +'deg)';
+      }
+
+    })();
+
+
+
+
+    //取消订单
+    $('#cancel-call').click(function(event) {
+      message.showConfirm({
+          'content': '您确定要取消此次打车吗？',
+          'rightBtnCallback': function(){
+              window.location.href="index.html";
+          }
+      });
+    });
+    
+
+    //无人响应，是否重新发起订单？
+    /*;*/
+
+</script>
+</body>
+</html>
+
+
+
+
+
+

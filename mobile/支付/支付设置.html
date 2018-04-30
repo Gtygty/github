@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>页面标题</title>
+	<meta http-equiv="Cache-Control" content="no-siteapp" /><!-- 百度禁止转码 -->
+	<meta name="keywords" content="这里写关键字">
+	<meta name="description" content="这里写页面描述">
+	<meta name ="viewport" content ="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"> 
+	<meta name="format-detection" content="telephone=no,email=no" /> <!-- 禁止自动识别为电话号码和邮件 -->
+	<script src="../public/js/jquery.js"></script>
+	<link rel="stylesheet" href="../public/css/base.css">	
+</head>
+<body class="bg-inverse">
+<section class="pay-header border-b">
+	<div>请选择支付安全验证方式：</div>
+</section>
+<section class="container box border-b">
+	<section class="label-pay">
+		<div class="left">短信动态验证</div>
+		<div class="right">
+			<label class="u-switch">
+				<input type="checkbox" disabled="" wx-content="开启短信动态验证需绑定手机号码，<br>您暂未绑定手机，请立即绑定！">
+				<em></em>
+			</label>
+		</div>
+	</section>
+	<section class="label-pay">
+		<div class="left">支付密码验证</div>
+		<div class="right">
+			<label class="u-switch">
+				<input type="checkbox" wx-content="您暂未绑定手机，为保证资金安全，<br>请设置支付密码！">
+				<em></em>
+			</label>
+		</div>
+	</section>
+</section>
+<script src="../public/js/gat.AlertMessage.js"></script>
+<script src="../public/js/base.js"></script>
+<script>
+	$(function(){
+		$('input:checkbox').change(function(){
+			var $this = $(this);
+			if($(this).is(':checked')){
+				message.showMessage({
+					'btnTxt':'立即绑定',
+					'content':$this.attr('wx-content'),
+					'callback': function(){
+						alert('这里跳转链接');
+					}
+				});
+			}
+		})
+		
+	})
+</script>
+</body>
+</html>

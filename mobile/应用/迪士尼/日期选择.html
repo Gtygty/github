@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>迪士尼－日期选择</title>
+	<meta http-equiv="Cache-Control" content="no-siteapp" /><!-- 百度禁止转码 -->
+	<meta name="keywords" content="这里写关键字">
+	<meta name="description" content="这里写页面描述">
+	<meta name ="viewport" content ="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"> 
+	<meta name="format-detection" content="telephone=no,email=no" /> <!-- 禁止自动识别为电话号码和邮件 -->
+	<script src="http://cdn.guanaitong.com/s2/mobile/V5.0/js/jquery.js"></script>
+	<link rel="stylesheet" href="http://cdn.guanaitong.com/s2/mobile/V5.0/css/base.css">
+	<!-- <script src="../../public/js/jquery.js"></script>
+	<link rel="stylesheet" href="../../public/css/base.css"> -->
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<view class="border-tn pt90">
+        <div class="ticket-chose">
+            <div class="border-r fl">
+                <select id="chose">
+                    <option class="tc" data-index="0" data-type="7">标准票</option>
+                    <option class="tc" data-index="1" data-type="8">老年票</option>
+                    <option class="tc" data-index="2" data-type="9">儿童票</option>
+                </select>
+                <i class="icon-right"></i>
+            </div>
+            <div class="fr plr12"><a href="门票详情.html" class="f14">票价详情</a></div>
+        </div>
+        <div class="calendars" id="date1"></div>
+        <div class="calendars" id="date2" class="hide"></div>
+        <div class="calendars" id="date3" class="hide"></div>
+	</view>
+	<footer>
+        <a href="javascript:;" class="ticket-btn per50 fl border-t border-r">取消</a>
+        <a href="javascript:;" class="ticket-btn per50 fl border-t">确定</a>
+	</footer>
+</body>
+<script src="js/response.js"></script>
+<script src="js/calendar.js"></script>
+<script>
+    $(function(){
+        var returnDay,endDate = 0,dd;
+        function ajax(data,successfn){
+            $.ajax({
+                url:'http://10.101.8.73:8080/disney/order/getProducts',
+                type: "get",
+                data: data,
+                dataType: 'json',
+                async: false,
+                jsonp: "callback",
+                success: function(result){
+                    successfn&&successfn(result);
+                }
+            })
+        }
+        function adddays(day) {  
+            var DaysToAdd=day; 
+            var newdate=new Date();  
+            var newtimems=newdate.getTime()+(DaysToAdd*24*60*60*1000);  
+            newdate.setTime(newtimems);
+            endDate = newdate.getFullYear()+"/"+(newdate.getMonth()+1)+"/"+newdate.getDate()
+        }
+        adddays(190);
+        function request(){
+            var arr =[{data:[]},{data:[]},{data:[]}];
+            var month = mouthType(),m1,m2,m3;
+            m1 = month.month1;
+            m2 = month.month2;
+            m3 = month.month3;
+            for (var j =0; j <3; j++) {
+                var type= parseFloat($('#chose').find('option').eq(j).attr('data-type'));
+                var datas = [{"type":type,'month':m1},{"type":type,'month':m2},{"type":type,'month':m3}];
+                for (var t =0; t <3; t++) {
+                    var data = datas[t];
+                    ajax(data,function(result){
+                        if (result) {
+                            for (var i = 0, len = result.data.length; i < len; i++) {
+                                var lis = {date:'', value:'',num:''};
+                                var item = result.data[i];
+                                lis.date = item.VisitDate;
+                                lis.value = item.Price == '-' ? 0 : item.Price;;
+                                lis.num = item.Quantity == '-' ? 0 : item.Quantity;
+                                arr[j].data.push(lis);
+                            }
+                        }
+                    });
+                }
+            }
+            dd = arr;
+        }
+        //获取不同的月
+        function mouth(y, m, n){
+            var d = new Date(y, m - 1);
+            d.setMonth(m - 1 + n);
+            return {
+                y: d.getFullYear(),
+                m: d.getMonth() + 1
+            };
+        }
+        function mouthType(){
+            var now = new Date()
+            var y = now.getFullYear(),m = now.getMonth()+1;
+            var y2 = mouth(y,m,1).y,m2 = mouth(y,m,1).m;
+            var y3 = mouth(y,m,2).y,m3 = mouth(y,m,2).m;
+            if (m < 10) {
+                month1 = y+'-'+'0'+ m;
+            }else{
+                month1 = y+'-'+ m;
+            }
+            if (m2 < 10) {
+                month2 = y2+'-'+'0'+ m2;
+            }else{
+                month2 = y2+'-'+ m2;
+            }
+            if (m3 < 10) {
+                month3 = y3+'-'+'0'+ m3;
+            }else{
+                month3 = y3+'-'+ m3;
+            }
+            return {
+                month1: month1,
+                month2: month2,
+                month3: month3
+            }
+        }
+        $('#chose').change(function(){
+            var i = parseFloat($('#chose').find('option:selected').attr('data-index'));
+            $('.calendars').eq(i).show().siblings('.calendars').hide();
+        });
+        request();
+        var vday = '2016-8-30';
+        if(vday != ''){
+            returnDay = new Date(dateToUnix(vday));
+        }
+        $('#date1').calendar({
+            date: returnDay,
+            data: dd[0].data,
+            selectedRang:[new Date(),endDate],
+            onSelected: function (view, date, data) {
+                console.log('你选中的日期是：' + date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate())
+            }
+        });
+        $('#date2').calendar({
+            data: dd[1].data,
+            selectedRang:[new Date(),endDate],
+            onSelected: function (view, date, data) {
+                console.log('你选中的日期是：' + date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate())
+            }
+        });
+        $('#date3').calendar({
+            data: dd[2].data,
+            selectedRang:[new Date(),endDate],
+            onSelected: function (view, date, data) {
+                console.log('你选中的日期是：' + date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate())
+            }
+        });
+        function dateToUnix(string) {
+            var f = string.split(' ', 2);
+            var d = (f[0] ? f[0] : '').split('-', 3);
+            var t = (f[1] ? f[1] : '').split(':', 3);
+            return (new Date(
+                parseInt(d[0], 10) || null, (parseInt(d[1], 10) || 1) - 1,
+                parseInt(d[2], 10) || null,
+                parseInt(t[0], 10) || null,
+                parseInt(t[1], 10) || null,
+                parseInt(t[2], 10) || null
+            )).getTime();
+        }
+        var defauleIndex = parseFloat($('#chose').find('option:selected').attr('data-index'));
+        $('.calendars').eq(defauleIndex).show();
+        //$('.calendars').eq(0).find('li.now').addClass('selected')
+        /*var vday = '';
+        if(vday == ''){
+            $('.calendars').eq(0).find('li.now').addClass('selected')
+        }*/
+        $('.calendars').eq(0).show();
+        var topNow = $('.calendars').eq(0).find('li.now:not(.new,.old)');
+        if(!topNow.hasClass('disabled') ){
+            topNow.addClass('selected');
+            var scorrTop = topNow.parents('ol').find('.item-title').offset().top - 90;
+            $('body').animate({'scrollTop':scorrTop},500);
+
+        }
+    })
+</script>
+</html>

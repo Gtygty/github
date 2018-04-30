@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获得的积分</title>
+	<meta name="viewport"
+	content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	<link rel="stylesheet" href="css/index.css" type = "text/css">
+	<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+</head>
+<body>
+	<header>
+		<p></p>
+		<h1>获得的积分</h1>
+	</header>
+	<div class="kong"></div>
+	
+	<div id="wrapper">
+		<div id="scroller">
+			<div class="contain_it" id="cont">
+			<div class="box1">
+				<div class="detail1">
+					<p>发布书评</p>
+				</div>
+				<div class="detail2">
+					<span>+30</span>
+				</div>
+				<div class="detail3">
+					<p>《数字时代》</p>
+					<p>2015/05/29</p>
+					<p>斗已倒，笔记已看，谜却依然还是那个谜......</p>
+				</div>
+			</div>
+
+			<div class="box2">
+				<div class="detail1">
+					<p>获得的积分</p>
+				</div>
+				<div class="detail2">
+					<span>+30</span>
+				</div>
+				<div class="detail3">
+					<p>《数字时代》</p>
+					<p>2015/05/29</p>
+					<p>斗已倒，笔记已看，谜却依然还是那个谜......</p>
+				</div>
+			</div>
+
+			<div class="box1">
+				<div class="detail1">
+					<p>发布书评</p>
+				</div>
+				<div class="detail2">
+					<span>+30</span>
+				</div>
+				<div class="detail3">
+					<p>《数字时代》</p>
+					<p>2015/05/29</p>
+					<p>斗已倒，笔记已看，谜却依然还是那个谜......</p>
+				</div>
+			</div>
+
+			<div class="box2">
+				<div class="detail1">
+					<p>获得的积分</p>
+				</div>
+				<div class="detail2">
+					<span>+30</span>
+				</div>
+				<div class="detail3">
+					<p>《数字时代》</p>
+					<p>2015/05/29</p>
+					<p>斗已倒，笔记已看，谜却依然还是那个谜......</p>
+				</div>
+			</div>
+
+			<div class="box1">
+				<div class="detail1">
+					<p>发布书评</p>
+				</div>
+				<div class="detail2">
+					<span>+30</span>
+				</div>
+				<div class="detail3">
+					<p>《数字时代》</p>
+					<p>2015/05/29</p>
+					<p>斗已倒，笔记已看，谜却依然还是那个谜......</p>
+				</div>
+			</div>
+
+			<div class="box2">
+				<div class="detail1">
+					<p>获得的积分</p>
+				</div>
+				<div class="detail2">
+					<span>+1000</span>
+				</div>
+				<div class="detail3">
+					<p>《数字时代》</p>
+					<p>2015/05/29</p>
+					<p>斗已倒，笔记已看，谜却依然还是那个谜......</p>
+				</div>
+			</div></div>
+			<!-- <div id="pullUp">
+				<span class="pullUpIcon"></span>
+				<span class="pullUpLabel"></span>
+			</div> -->
+			<section id="loadingMore"><i></i>加载中，请稍后</section>
+			<section id="loadingMore1">没有更多了</section>
+		</div>
+	</div>
+	<!-- 左侧滑动块 -->
+	<div class="sidebar_bg"></div>
+	<div class="sidebar">
+		<div class="box">
+			<a href="#">评阅动态</a>
+			<a href="#">发布的悦评</a>
+			<a href="#" class="cur">获得的积分</a>
+		</div>
+	</div>
+</body>
+</html>
+<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+<script type="text/javascript">
+$(function (){
+	var $p = $("header p");
+	var $sidebar = $(".sidebar");
+	var $sidebar_bg = $(".sidebar_bg");
+	var onOff = true;
+	$p.click(function (){
+		if(onOff) {
+			$sidebar.addClass("cur");
+			$sidebar_bg.show();
+			onOff = false;
+		}else {
+			$sidebar.removeClass("cur");
+			$sidebar_bg.hide();
+			onOff = true;
+		}
+	});
+	$sidebar_bg.on('touchend',function(event) {
+		$sidebar.removeClass("cur");
+		$(this).hide();
+		event.preventDefault();
+	});
+
+
+	var loadSwitch = true;//开关
+    var page = 0;//当前第几页
+    var oLoadingMore = $('#loadingMore');
+
+
+    $(window).bind('scroll',loadingPage)
+
+     function loadingPage(){
+        var t = oLoadingMore.offset().top + 36;//计算loading图到页面顶部的距离
+        console.log(t);
+       	console.log($(window).scrollTop() + $(window).height());
+        if(t<($(window).scrollTop()+$(window).height()) && loadSwitch)//判断loading图是不是进入可视区 并且 开关是否开启
+        {
+
+            page++;
+
+            loadSwitch=false;//开关关闭
+
+            //ajax加载
+            $.ajax({
+                url: '/path/to/file',
+                type: 'default GET (Other values: POST)',
+                dataType: 'default: Intelligent Guess (Other values: xml, json, script, or html)',
+                data: {param1: 'value1'},
+                success:function(data){
+                    loadSwitch=true;//加载完成后开启
+					$('#loadingMore1 ').hide();
+                    if(true){//条件   没有后续加载内容的时候，解除scroll事件
+                        $(window).unbind('scroll',loadingPage);
+                        $('#loadingMore1 ').show();
+                    }
+                }
+            })
+        }
+
+    }
+})
+</script>
+<!-- <script type="text/javascript" src="js/iscroll.js"></script>
+<script type="text/javascript" src="js/load_more.js"></script> -->

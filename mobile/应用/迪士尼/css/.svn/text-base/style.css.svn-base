@@ -1,0 +1,84 @@
+header { width: 100%; font-size: 18px; height: 44px; position: fixed; top: 0; left: 0; right: 0; margin:0 auto; z-index: 98;}
+footer { width: 100%; position: fixed; bottom: 0; left: 0; z-index: 98; height: 50px;}
+
+/*首页*/
+.ticket-img{ background-image: url(../img/ticket.png); background-repeat: no-repeat; width: 44px; height: 26px; display: inline-block; vertical-align: middle;}
+.ticket-img.img1{  background-position: 0 0 ; }
+.ticket-img.img2{  background-position: -44px 0 ; }
+.ticket-list li{ padding:30px 0; }
+.controller{ display: inline-block; }
+.symbol{ background-image: url(../img/symbol.png); background-repeat: no-repeat; width: 40px; height: 40px; display: inline-block; vertical-align: middle; background-size: 80px 80px; float: left;}
+.controller .symbol.sub{ background-position: 0 0;}
+.controller .symbol.add{ background-position: -40px 0;}
+.controller .symbol.sub.active{ background-position: 0px -40px;}
+.controller .symbol.add.active{ background-position: -40px -40px;}
+.controller .number{ display: inline-block; float: left; height: 40px; line-height: 40px; font-size: 36px; color: #333; width: 100px; text-align: center;}
+.ticket-table {width: 100%;}
+.ticket-table thead th{padding: 12px 8px; color: #666; border:1px solid #ddd;}
+.ticket-table tbody td{padding: 12px 8px; color: #666; border:1px solid #ddd;}
+.ticket-btn{ width: 100%; display: block; background-color: #fff; color: #666; font-size: 16px; line-height: 50px; height: 50px; text-align: center;}
+.ticket-btn.disabled{ color: #ccc;}
+
+.ticket-type{ border: 1px solid #ccc; padding: 0 16px 10px; border-radius: 4px; margin-top: 18px; position: relative;}
+.ticket-type .icon-round-check-fill{ position: absolute; right: -8px; top: -10px; color: #47c978; font-size: 20px; background: #fff; border-radius: 50%; width: 22px; height: 22px; line-height: 22px; text-align: center; display: none;}
+.ticket-type.active{ border-color: #47c978;}
+.ticket-type.active  .icon-round-check-fill{ display: block;}
+
+.ticket-chose{position: fixed; width: 100%; left: 0; top: 0; background: #fff; height: 50px; z-index: 999;}
+.ticket-chose select{ border:none; background: #fff; width: 100px; height: 50px; line-height: 50px; text-align: center; padding-left: 10px;}
+.ticket-chose .icon-right{ position: absolute; top: 14px; left: 72px;transform:rotate(90deg);-moz-transform:rotate(90deg);-webkit-transform:rotate(90deg); }
+.ticket-chose  a{ color: #428af7; line-height: 50px;}
+/*日期*/
+.calendar { width: 100%; display: none; border-top: 90px solid transparent; border-bottom: 50px solid transparent;}
+.calendar-inner { position: relative; z-index: 1; width: 100%; height: 100%;}
+.calendar-ct,.calendar-views .week,.calendar-views .days { overflow: hidden;}
+.calendar-views .days { padding-bottom: 10px;}
+/*.calendar .date-items > li:first-child{display: none;}*/
+.calendar-arrow .prev{ float: left; margin-left: 15px; cursor: pointer;}
+.calendar-arrow .next{ float: right; margin-right: 15px; cursor: pointer;}
+.calendar-hd {height: 30px; line-height: 30px; position: relative; text-align: center; margin-bottom: 10px; display: none;}
+.calendar-display { font-size: 28px; text-indent: 10px;}
+.calendar-arrow,.calendar-display { color: #ddd;}
+
+.calendar-arrow { width: 100%; left: 0; top: 0; line-height: 30px; height: 30px; position: absolute; display: none;}
+.calendar-arrow span { font: 500 26px sans-serif;}
+
+.calendar ol li { position: relative; float: left; text-align: center;}
+.calendar .week li{ width: 14.28571%; line-height: 40px; height: 40px; font-size: 14px;}
+.calendar .days li {  width:  14.28571%; height: 4.46396rem; padding: 4px 5px; border:1px solid #fff; border-radius: 5px;color: #333; text-align: center; font-size: 16px;}
+.calendar .days li p{ text-align: center; color: #999; font-size: 12px;}
+.calendar .month-items li { width: 70px; height: 70px; line-height: 70px;}
+.calendar .item-title{ line-height: 30px; text-align: center; font-size: 24px; padding: 10px 0; margin-bottom: 10px;}
+
+.calendar li.old[disabled],.calendar li.new[disabled] { color: #bbb;}
+
+.calendar-views .days li[data-calendar-day]{ cursor: pointer; background: #fff; border:1px solid #fff; border-radius: 5px;}
+.calendar li[disabled] { background: #e2ebf1; visibility: hidden; color: #bbb;}
+
+.calendar-display .m,.calendar-views .week{ color: #999; background: #f9f9f9; position: fixed; top: 50px; left: 0; width: 100%; z-index: 999;}
+.calendar-views .days .old,.calendar-views .days .new{ color: #8596a0; visibility: hidden;}
+.calendar .calendar-views .selected { color: #fff; background: #47c978!important; }
+.calendar .calendar-views .selected .dot{ color: #fff; }
+/**{-webkit-tap-highlight-color:rgba(0,0,0,0);}*/
+.border-t:before,.border-b:after,.border-l:before,.border-r:after{ background-color: #d2d2d2;}
+/*单独样式*/
+.border-tn{ border-top: 0px; }
+.border-bn{ border-bottom: 0px; }
+.border-n{ border: none; }
+.lh0{ line-height: 0; }
+.vm{ vertical-align: middle; }
+.fb{ font-weight: bold; }
+.lh30{ line-height: 30px; }
+.lh44{ line-height: 44px; }
+.ht44{ height: 44px; }
+.pl12{ padding-left: 12px; }
+.pt90{ padding-top: 90px; }
+.plr12{ padding-left: 12px; padding-right: 12px; }
+.mt10{ margin-top: 10px; }
+.mb50{ margin-bottom: 50px; }
+.hide{ display: none; }
+.per50{ width: 50%; }
+.fc-f{ color: #fff; }
+.fc-3{ color: #333; }
+.fc-6{ color: #666; }
+.fc-9{ color: #999; }

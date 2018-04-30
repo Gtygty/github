@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>页面标题</title>
+	<meta http-equiv="Cache-Control" content="no-siteapp" /><!-- 百度禁止转码 -->
+	<meta name="keywords" content="这里写关键字">
+	<meta name="description" content="这里写页面描述">
+	<meta name ="viewport" content ="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"> 
+	<meta name="format-detection" content="telephone=no,email=no" /> <!-- 禁止自动识别为电话号码和邮件 -->
+	<script src="../public/js/jquery.js"></script>
+	<link rel="stylesheet" href="../public/css/base.css">
+</head>
+<body>
+
+<section class="container">
+	<section class="login-photo">
+		<img src="../public/img/login-photo-default.png" alt="">
+	</section>
+	<section class="form-group">
+		<label class="form-label" for="name">账&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号</label>
+		<div class="form-control-box" wx-role="empty-input">
+			<input class="form-control" id="name" type="text" value="" placeholder="请输入 用户名/ 邮箱 / 手机号码">
+			<!-- <i class="form-control-right icon-close"></i> -->
+		</div>
+	</section>
+	<section class="form-group">
+		<label class="form-label" for="phoneNum">登录密码</label>
+		<div class="form-control-box" wx-role="empty-input">
+			<input class="form-control" id="phoneNum" type="password" placeholder="请输入登录密码">
+			<!-- <i class="form-control-right icon-close"></i> -->
+		</div>
+	</section>
+	<button type="submit" id="btn-submit" class="btn btn-primary mt16">登录</button>
+	<section class="loginmore container">
+		<div class="row-full">
+			<div class="col-xs-6 tr border-r"><a href="#">找回登录密码</a></div>
+			<div class="col-xs-6 tl"><a href="#">使用ai卡卡号登录</a></div>
+		</div>
+	</section>
+</section>
+
+<section class="pop-slide-up">
+	<section class="pop-slide-con">
+		<div class="pop-slide-hd row-full border-b">
+			<h3>登录成功，请核对以下信息：</h3>
+			<p>如信息有误，联系企业HR</p>
+			<i class="icon-round-close close"></i>
+		</div>
+		<div class="pop-slide-bd">
+			<section class="label-info">
+				<label>ai卡卡号</label><div class="txt">223528989312423528989312423528989312423528989312435289893124</div>
+			</section>
+			<section class="label-info">
+				<label>工号</label><div class="txt">xq119</div>
+			</section>
+			<section class="label-info">
+				<label>姓名</label><div class="txt">谢晴</div>
+			</section>
+		</div>
+		<div class="pop-slide-ft">
+			<button type="submit" class="btn btn-primary">确认</button>
+		</div>
+	</section>
+</section>
+<script src="../public/js/gat.AlertMessage.js"></script>
+<script src="../public/js/gat.PopSlideUp.js"></script>
+<script src="../public/js/base.js"></script>
+<script>
+window.onload= function(){
+	/*选择企业*/
+	var chooseHtml = '<h3 class="tl">请选择企业：</h3>'
+					+'<div class="m-radio">'
+						+'<label class="u-radio"><span><input type="radio" name="option1"><em class="icon-check"></em></span>xieqing111@guanaitong.com</label>'
+						+'<label class="u-radio"><span><input type="radio" name="option1"><em class="icon-check"></em></span>xieqing111@guanaitong.com</label>'
+						+'<label class="u-radio"><span><input type="radio" name="option1"><em class="icon-check"></em></span>xieqing111@guanaitong.com</label>'
+					+'</div>';
+	message.showConfirm({
+	    'content': chooseHtml,
+	    'rightBtnCallback': function(){
+	    	message.showNotify({
+				'content':'账号或密码错误！'
+			})
+			/*message.showLoading();
+			setTimeout(function(){
+				message.clearContent();
+				message.showMessage({
+					'btnTxt':'关闭',
+					'content':'账号密码错误!'
+				});
+			},3000)*/
+		},
+	});
+
+	
+
+
+	/*弹层效果*/
+	var i=0;
+	document.getElementById('btn-submit').onclick = function(){
+		if(i==0){
+			message.showMessage({
+				'btnTxt':'关闭',
+				'content':'账号密码错误!'
+			});
+		}else if(i==1){
+			message.showConfirm({
+			    'leftBtnTxt': '不是',
+			    'rightBtnTxt': '是',
+			    'leftBtnAutoClose': false,
+			    'rightBtnAutoClose': true,
+			    'leftBtnCallback': function(){
+			    	alert('你点错了！')
+			    },
+			    'rightBtnCallback': function(){
+			    	
+			    },
+			    'content': '你是猪吗？？？？'
+			});
+		}else if(i==2){
+			message.showNotify({
+				'content':'账号或密码错误！'
+			})
+		}
+		else{
+			popSildeUp.show(document.querySelectorAll('.pop-slide-up')[0])
+		}
+
+		i++;
+	}
+
+}
+</script>
+</body>
+</html>

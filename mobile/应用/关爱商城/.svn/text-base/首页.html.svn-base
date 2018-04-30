@@ -1,0 +1,359 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp" /><!-- 百度禁止转码 -->
+    <meta name ="viewport" content ="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"> 
+    <meta name="format-detection" content="telephone=no,email=no" /> <!-- 禁止自动识别为电话号码和邮件 -->
+    <meta name="keywords" content="这里写关键字">
+    <meta name="description" content="这里写页面描述">
+    <title>关爱商城-首页</title>
+    <script type="text/javascript" src="../../public/js/jquery.js" ></script>
+    <script type="text/javascript" src="../../public/js/swiper/swiper.min.js" ></script>
+    <script type="text/javascript" src="js/height.js" ></script>
+    <script type="text/javascript" src="js/lazyload.js" ></script>
+    <link rel="stylesheet" href="../../public/js/swiper/swiper.min.css" />
+    <link rel="stylesheet" href="css/phone.css" />
+    <link rel="stylesheet" href="css/theme.css" />
+</head>
+<body>
+    <view class="border-tn bg-default lazyload">
+        <div class="container">
+            <!-- 轮播 -->
+            <div class="swiper-container indexbanner">
+                <ul class="swiper-wrapper">
+                    <li class="swiper-slide">
+                        <a href="" title=""><img class="per100" src="img/indexbanner.jpg" alt=""></a>
+                    </li>
+                    <li class="swiper-slide">
+                        <a href="" title=""><img class="per100" src="img/indexbanner.jpg" alt=""></a>
+                    </li>
+                    <li class="swiper-slide">
+                        <a href="" title=""><img class="per100" src="img/indexbanner.jpg" alt=""></a>
+                    </li>
+                </ul>
+                <div class="swiper-pagination"></div>  
+            </div>
+
+            <!-- 顶部 -->
+            <div class="search flex-box">
+                <label id="classify"><i class="icon-tabulation icon-center fs-18 fc-6"></i>分类</label>
+                <div class="flex1 pos-r">
+                    <i class="icon-search icon-center fs-18 fc-6"></i>
+                    <input type="text" name="" id="search" value="" placeholder="请输入关键词">
+                </div>
+                <label class="ml8 mr0 p0 fc-6 hide-i" id="cancel">取消</label>
+            </div>
+            
+            <!-- 公告 -->
+            <div class="row notice ellipsis ellipsis1">
+                <div class="flex-box fs-12">
+                    <div class=""><i class="icon-remind icon-center fs-14"></i><span class="fc-3 mr8">公告</span></div>
+                    <div class="flex1 pos-r">&nbsp;
+                        <marquee class="pos-a" scrollAmount = 5>关爱商城全新改版，高性价比商品供您选择！</marquee>
+                   </div>
+               </div>
+            </div>
+
+            <!-- 本周推荐 -->
+            <div class="row project tc project-primary">
+                <div class="line"></div>
+                <span class="line-cont"><img class="mr3" src="img/project2.png" width="17" height="15" alt=""><span class="vm">本周推荐</span></span>
+            </div>
+
+            <!-- 推荐轮播 -->
+            <div class="swiper-container projectbanner bg-f mb8">
+                <ul class="swiper-wrapper">
+                    <li class="swiper-slide border-r">
+                        <p class="ellipsis ellipsis1 fc-9">滋润补水保 孕妇可用 </p>
+                        <p class="ellipsis ellipsis1 fc-3">馥蕾诗澄糖润唇馥蕾诗澄糖润唇</p>
+                        <a href="" title=""><img src="img/projectbanner1.jpg" alt=""></a>
+                        <p class="fc-3 tc">&yen; 265.00</p>
+                    </li>
+                    <li class="swiper-slide border-r">
+                        <p class="ellipsis ellipsis1 fc-9">滋润补水保 孕妇可用 </p>
+                        <p class="ellipsis ellipsis1 fc-3">馥蕾诗澄糖润唇馥蕾诗澄糖润唇</p>
+                        <a href="" title=""><img src="img/projectbanner2.jpg" alt=""></a>
+                        <p class="fc-3 tc">&yen; 265.00</p>
+                    </li>
+                    <li class="swiper-slide border-r">
+                        <p class="ellipsis ellipsis1 fc-9">滋润补水保 孕妇可用 </p>
+                        <p class="ellipsis ellipsis1 fc-3">馥蕾诗澄糖润唇馥蕾诗澄糖润唇</p>
+                        <a href="" title=""><img src="img/projectbanner1.jpg" alt=""></a>
+                        <p class="fc-3 tc">&yen; 265.00</p>
+                    </li>
+                    <li class="swiper-slide border-r">
+                        <p class="ellipsis ellipsis1 fc-9">滋润补水保 孕妇可用 </p>
+                        <p class="ellipsis ellipsis1 fc-3">馥蕾诗澄糖润唇馥蕾诗澄糖润唇</p>
+                        <a href="" title=""><img src="img/projectbanner2.jpg" alt=""></a>
+                        <p class="fc-3 tc">&yen; 265.00</p>
+                    </li>
+                    <li class="swiper-slide border-r">
+                        <p class="ellipsis ellipsis1 fc-9">滋润补水保 孕妇可用 </p>
+                        <p class="ellipsis ellipsis1 fc-3">馥蕾诗澄糖润唇馥蕾诗澄糖润唇</p>
+                        <a href="" title=""><img src="img/projectbanner1.jpg" alt=""></a>
+                        <p class="fc-3 tc">&yen; 265.00</p>
+                    </li>
+                    <li class="swiper-slide border-r">
+                        <p class="ellipsis ellipsis1 fc-9">滋润补水保 孕妇可用 </p>
+                        <p class="ellipsis ellipsis1 fc-3">馥蕾诗澄糖润唇馥蕾诗澄糖润唇</p>
+                        <a href="" title=""><img src="img/projectbanner2.jpg" alt=""></a>
+                        <p class="fc-3 tc">&yen; 265.00</p>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 精选专题 -->
+            <div class="row project tc project-primary">
+                <div class="line"></div>
+                <span class="line-cont"><img class="mr3" src="img/project2.png" width="17" height="15" alt=""><span class="vm">精选专题</span></span>
+            </div>
+
+            <!-- 专题轮播 -->
+            <div class="swiper-container subjectbanner mb8">
+                <ul class="swiper-wrapper">
+                    <li class="swiper-slide">
+                        <a href="" title=""><img class="per100" src="img/subjectbanner.jpg" alt=""></a>
+                    </li>
+                </ul>
+                <!-- <div class="swiper-pagination subject"></div>  --> 
+            </div>
+
+            <!-- 分类 -->
+            <div class="projectlist border-001">
+                <div class="projectleft tc">
+                    <a href="" title=""><img class="per100 lazy" data-src="img/projectleft1.jpg" src="" alt=""></a>
+                </div>
+                <ul class="projectright">
+                    <li class="border-l border-b">
+                        <img class="lazy" data-src="img/projectright.jpg" src="" alt="">
+                        <p class="fs-10 ellipsis ellipsis1">美的 电压力锅 双胆</p>
+                        <p class="fs-12">&yen; 244.00</p>
+                    </li>
+                    <li class="border-l border-b">
+                        <img class="lazy" data-src="img/projectright.jpg" src="" alt="">
+                        <p class="fs-10 ellipsis ellipsis1">美的 电压力锅 双胆</p>
+                        <p class="fs-12">&yen; 244.00</p>
+                    </li>
+                    <li class="border-l border-b">
+                        <img class="lazy" data-src="img/projectright.jpg" src="" alt="">
+                        <p class="fs-10 ellipsis ellipsis1">美的 电压力锅 双胆</p>
+                        <p class="fs-12">&yen; 244.00</p>
+                    </li>
+                    <li class="border-l border-b">
+                        <img class="lazy" data-src="img/projectright.jpg" src="" alt="">
+                        <p class="fs-10 ellipsis ellipsis1">美的 电压力锅 双胆</p>
+                        <p class="fs-12">&yen; 244.00</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="projectlist border-002">
+                <div class="projectleft tc">
+                    <a href="" title=""><img class="per100 lazy" data-src="img/projectleft2.jpg" src="" alt=""></a>
+                </div>
+                <ul class="projectright">
+                    <li class="border-l border-b">
+                        <img class="lazy" data-src="img/projectright.jpg" src="" alt="">
+                        <p class="fs-10 ellipsis ellipsis1">美的 电压力锅 双胆</p>
+                        <p class="fs-12">&yen; 244.00</p>
+                    </li>
+                    <li class="border-l border-b">
+                        <img class="lazy" data-src="img/projectright.jpg" src="" alt="">
+                        <p class="fs-10 ellipsis ellipsis1">美的 电压力锅 双胆</p>
+                        <p class="fs-12">&yen; 244.00</p>
+                    </li>
+                    <li class="border-l border-b">
+                        <img class="lazy" data-src="img/projectright.jpg" src="" alt="">
+                        <p class="fs-10 ellipsis ellipsis1">美的 电压力锅 双胆</p>
+                        <p class="fs-12">&yen; 244.00</p>
+                    </li>
+                    <li class="border-l border-b">
+                        <img class="lazy" data-src="img/projectright.jpg" src="" alt="">
+                        <p class="fs-10 ellipsis ellipsis1">美的 电压力锅 双胆</p>
+                        <p class="fs-12">&yen; 244.00</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="projectlist border-003">
+                <div class="projectleft tc">
+                    <a href="" title=""><img class="per100 lazy" data-src="img/projectleft3.jpg" src="" alt=""></a>
+                </div>
+                <ul class="projectright">
+                    <li class="border-l border-b">
+                        <img class="lazy" data-src="img/projectright.jpg" src="" alt="">
+                        <p class="fs-10 ellipsis ellipsis1">美的 电压力锅 双胆</p>
+                        <p class="fs-12">&yen; 244.00</p>
+                    </li>
+                    <li class="border-l border-b">
+                        <img class="lazy" data-src="img/projectright.jpg" src="" alt="">
+                        <p class="fs-10 ellipsis ellipsis1">美的 电压力锅 双胆</p>
+                        <p class="fs-12">&yen; 244.00</p>
+                    </li>
+                    <li class="border-l border-b">
+                        <img class="lazy" data-src="img/projectright.jpg" src="" alt="">
+                        <p class="fs-10 ellipsis ellipsis1">美的 电压力锅 双胆</p>
+                        <p class="fs-12">&yen; 244.00</p>
+                    </li>
+                    <li class="border-l border-b">
+                        <img class="lazy" data-src="img/projectright.jpg" src="" alt="">
+                        <p class="fs-10 ellipsis ellipsis1">美的 电压力锅 双胆</p>
+                        <p class="fs-12">&yen; 244.00</p>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 没有更多了 -->
+            <div class="row project tc nomore bg-default" style="margin-bottom: 0">
+                <div class="line"></div>
+                <span class="line-cont">没有更多了</span>
+            </div>
+        </div>
+
+        <section class="hot-search">
+            <div class="container">
+                <div class="row">
+                    <p class="pt16"><i class="icon-hot mr8 vm"></i><span class="vm fs-12">热门搜索</span></p>
+                </div>
+                <div class="row hotwords">
+                    <span>坚果</span>
+                    <span>加湿器</span>
+                    <span>咖啡机</span>
+                    <span>床品四件套</span>
+                    <span>贝亲轻便型蒸汽消毒器消毒锅</span>
+                </div>
+            </div>
+        </section>
+    </view>
+    <footer>
+        <div class="flex-box border-t footer">
+            <div class="flex1 factive"><a href="index.html" title=""><i class="icon-home icon-lg"></i>关爱商城</a></div>
+            <div class="flex1"><a href="collect.html" title=""><i class="icon-favorites icon-lg"></i>收藏夹</a></div>
+            <div class="flex1"><a href="cart.html" title=""><i class="icon-cart icon-lg"></i>购物车</a></div>
+            <div class="flex1"><a href="order.html" title=""><i class="icon-order icon-lg"></i>订单</a></div>
+        </div>
+    </footer>
+
+    <!-- 左侧列表滑出 -->
+    <div class="class-mask"></div>
+    <section class="classify">
+        <div class="classleft">
+            <h5 class="border-b" id="dads">全部分类</h5>
+            <ul class="classlist">
+                <li class="border-b clactive">家用电器</li>
+                <li class="border-b">美容彩妆</li>
+                <li class="border-b">居家生活</li>
+                <li class="border-b">母婴专区</li>
+                <li class="border-b">美食保健</li>
+            </ul>
+            <div class="classcont" id="classcont">
+                <ul class="clscont">
+                    <li>
+                        <img src="img/classlist.jpg" alt="">
+                        <p class="ellipsis ellipsis2">空气净化器1空气净化器1空气净化器1</p>
+                    </li>
+                    <li>
+                        <img src="img/classlist.jpg" alt="">
+                        <p class="ellipsis ellipsis2">空气净化器1</p>
+                    </li>
+                    <li>
+                        <img src="img/classlist.jpg" alt="">
+                        <p class="ellipsis ellipsis2">空气净化器1</p>
+                    </li>
+                    <li>
+                        <img src="img/classlist.jpg" alt="">
+                        <p class="ellipsis ellipsis2">空气净化器1</p>
+                    </li>
+                </ul>
+                <ul class="clscont"></ul>
+                <ul class="clscont"></ul>
+                <ul class="clscont"></ul>
+                <ul class="clscont"></ul>
+            </div>
+        </div>
+        <div class="classright">
+            <a class="classback" href="#" title="">点 击 此 处 返 回<i class="icon-roundback fs-14"></i></a>
+        </div>
+    </section>
+</body>
+<script type="text/javascript">
+$(function(){
+    //第一个
+    var swiper = new Swiper ('.indexbanner', {
+        autoplayDisableOnInteraction:false,
+        pagination: '.swiper-pagination',   //下面锚点
+        autoplay: 5000,                     //动画时间
+        loop: true,                         //无限循环
+    });
+
+    //第二个
+    var swiperp = new Swiper ('.projectbanner', {
+        slidesPerView: 3.1,
+        paginationClickable: true,
+    });
+
+    //第三个暂时去掉
+    /*var swiper = new Swiper ('.subjectbanner', {
+        autoplayDisableOnInteraction:false,
+        pagination: '.subject',             //下面锚点
+        autoplay: 5000,                     //动画时间
+        loop: true,                         //无限循环
+    });*/
+
+    /*专题边框问题*/
+    $(function(){
+        $('ul.projectright li').eq(3).removeClass('border-b');
+        $('ul.projectright li').eq(2).removeClass('border-b');
+    })
+
+    //左侧滑动
+    $('#classify').click(function(event) {
+        $('section.classify').animate({left: 0}, 'slow');
+        $('#classcont').find("ul").eq(0).show().siblings().hide();
+        $('.class-mask').fadeIn();
+        $('view').css('overflow-y', 'hidden');
+    });
+    $('a.classback').bind('click', function(event) {
+        $('section.classify').animate({left: '-100%'}, 'slow');
+        $('.class-mask').fadeOut();
+        $('view').css('overflow-y', 'auto');
+    });
+    var li = $('ul.classlist li');
+    li.click(function() {
+        $(this).addClass("clactive").siblings().removeClass('clactive');
+        var i = li.index(this);
+        var ul = $('#classcont').find("ul").eq(i)
+        ul.show().addClass('clscont').siblings().hide();
+        if (ul[0].innerHTML == "") {
+            alert(i);
+        }else{
+            return;
+        };
+    });
+
+    //收缩
+    $('#search').focus(function(event) {
+        $('.hot-search').fadeIn();
+        $('#cancel').removeClass('hide-i');
+        $('#classify').fadeOut();
+        $('view').addClass('border-n');
+        $('view').css('overflow-y', 'hidden');
+        $('footer').hide();
+    });
+    $('#cancel').click(function(event) {
+        $('#classify').fadeIn();
+        $('.hot-search').fadeOut();
+        $('#cancel').addClass('hide-i');
+        $('view').removeClass('border-n');
+        $('view').css('overflow-y', 'auto');
+        $('footer').show();
+    });
+
+    //懒人加载
+    $(function() {
+      $("img.lazy").lazyload({effect: "fadeIn"});
+    });
+})
+</script>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>手机充值-已输入</title>
+	<meta http-equiv="Cache-Control" content="no-siteapp" /><!-- 百度禁止转码 -->
+	<meta name="keywords" content="这里写关键字">
+	<meta name="description" content="这里写页面描述">
+	<meta name ="viewport" content ="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"> 
+	<meta name="format-detection" content="telephone=no,email=no" /> <!-- 禁止自动识别为电话号码和邮件 -->
+	<script src="../../public/js/jquery.js"></script>
+	<link rel="stylesheet" href="../../public/css/base.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-inverse">
+	<section class="order-coupon order-coupon-notpaid bg-f">
+		<div class="phone-title flexbox border-b">
+			<div class="flex-1">手机号码</div>
+			<div class="flex-1 tr">13912341234</div>
+		</div>
+		<section class="order-coupon-item phone-prepaid border-b">
+			<div class="coupon-img">50</div>
+			<div class="coupon-txt">
+				<p>50元话费</p>
+				<p>1件<span class="fr">￥50.00</span></p>
+			</div>
+		</section>
+		<section class="order-coupon-item phone-prepaid">
+			<div class="coupon-img">100</div>
+			<div class="coupon-txt">
+				<p>100元话费</p>
+				<p>3件<span class="fr">￥300.00</span></p>
+			</div>
+		</section>
+	</section>
+	<section class="container mt16">
+		<p class="mt16 dark">温馨提示</p>
+		<p class="light lh20">月初月末为充值高峰，话费到账可能会延迟或失败，建议错时充值。如若充值失败将退回积分，敬请谅解，感谢支持！</p>
+	</section>
+	<section class="footer-fixed-holder">
+		<section class="fixed-bottom pay-fixed-bottom">
+			<div class="info">总计：<span class="price">700.00</span></div>
+			<div>
+				<a class="btn btn-primary" id="btn-pay">结算</a>
+			</div>
+		</section>
+	</section>
+</body>
+<script src="../../public/js/base.js"></script>
+<script src="../../public/js/gat.AlertMessage.js"></script>
+<script>
+    window.onload= function(){
+        /*弹层效果*/
+        var chooseHtml = '<p class="dark">密码格式不正确，两次输入不一致，请重新设置。</p>';
+        $('#btn-pay').click(function(){
+            message.showMessage({
+	            'btnTxt':'重新设置',
+	            'content':chooseHtml
+	        });
+        })
+    }
+</script>
+</html>

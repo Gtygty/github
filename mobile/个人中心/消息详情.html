@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>页面标题</title>
+	<meta http-equiv="Cache-Control" content="no-siteapp" /><!-- 百度禁止转码 -->
+	<meta name="keywords" content="这里写关键字">
+	<meta name="description" content="这里写页面描述">
+	<meta name="format-detection" content="telephone=no,email=no" /> <!-- 禁止自动识别为电话号码和邮件 -->
+	<script src="../public/js/jquery.js"></script>
+	<link rel="stylesheet" href="../public/css/base.css">
+</head>
+<body>
+<section class="container news-detail" style="display:none;">
+	<section class="news-detail-title">有关开展大众点评手机客户端试用关爱积分的通知积分的通知</section>
+	<p class="news-release-time"><i class="icon-round-time"></i>2016-03-30 13:58:30</p>
+	<section class="news-detail-content">
+		<p>各位同事：</p>
+		<p>为了扩大关爱通积分的使用范围，本公司与大众点评开展合作，员工可通过大众点评手机客户端使用关爱积分进行消费。首先大家须登入ciicpr.guanaitong.com关爱平台，进入积分消费，点击“大众点评”应用，根据操作提示进行账号绑定。绑定完成后即可通过大众点评手机客户端进行关爱积分消费。希望大家积极试用，若在操作绑定使用过程中发现问题或者有合理化建议，请与技术部杨勇（yong.yang@guanaitong.com, 分机3283）联系。</p>
+		<img src="../public/img/_temp_/bl.jpg" alt="placeholder+image">
+		<p>为了扩大关爱通积分的使用范围，本公司与大众点评开展合作，员工可通过大众点评手机客户端使用关爱积分进行消费。</p>
+	</section>
+</section>
+<script>
+$(function(){
+	if($('img').length>0){
+		$('head').append($('<meta name ="viewport" content ="width=device-width, initial-scale=1, minimum-scale=1">'));
+	}else{
+		$('head').append($('<meta name ="viewport" content ="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"> '));
+	}
+	$('.news-detail').show();
+})
+</script>
+</body>
+</html>
